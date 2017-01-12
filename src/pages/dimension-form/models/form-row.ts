@@ -1,25 +1,86 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+export class FormRow {
+  fieldName: string;
+  defaultValue: string;
+  minValue: string;
+  maxValue: string;
+  symbol: string;
+  name: string;
+  steps: any;
 
-/*
-  Generated class for the FormRowService provider.
+  constructor(row) {
+    this.fieldName = row.fieldname;
+    this.defaultValue = row.default_value;
+    this.minValue = row.min_value;
+    this.maxValue = row.max_value;
+    this.symbol = row.symbol;
+    this.name = row.name;
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
-@Injectable()
-export class FormRowService {
-
-  constructor(public http: Http) {
-    console.log('Hello FormRowService Provider');
+    if(row.steps !== null){
+      this.steps = row.steps.split(',');
+    }else{
+      this.steps = row.steps;
+    }
   }
 
-  createFormRow(row: Object): string{
-    console.log(JSON.stringify(row));
-    return JSON.stringify(row);
+
+  private createInput(): string{
+    let html: string;
+
+    if(this.steps === null){
+
+      //input
+      html = `<input type="number"
+              class="form-control col col-30 input-field"
+              id = ${ this.fieldName }
+              value = ${ this.defaultValue }
+              data-ng-min = ${ this.minValue }
+              data-ng-max = ${ this.maxValue }
+              required>`
+    }else{
+      this.steps.forEach((item)=>{
+        console.log(item)
+      })
+
+      //dropdown
+      html = `<select
+              (change)="onSelect($event.target.value)"
+              id = ${ this.fieldName }>
+                <option *ngFor="#step of ${this.steps}"
+                [value]=${this.defaultValue}>
+                </option>
+              </select>
+            `
+            console.log(html);
+    }
+    return html;
   }
 
+  public createFormRow(): string{
+    let htmlFormRow: string = `<div class="row form-row"
+                                  <label for=${ this.fieldName }
+                                    class="col col-20 col-form-label">
+                                    ${ this.name }
+                                  </label>
+                                  ${this.createInput()}
+                                  <label for=${ this.fieldName }
+                                    class="col col-20 input-unit">
+                                      ${ this.symbol }
+                                  </label>
+                                  <div class="error"
+                                    ng-messages="dimension-form.${ this.fieldName }.$error"
+                                    role="alert">
+                                    <div ng-message="required">Tomt fält</div>
+                                    <div ng-message="min">Min ${ this.minValue }</div>
+                                    <div ng-message="max">Max ${ this.maxValue }</div>
+                                  </div>
+                                  <div class="error"
+                                    ng-show="dimension-form.${ this.fieldName }.$error"
+                                    role="alert">Ogiltigt tal
+                                  </div>
+                                </div>`;
+
+    return htmlFormRow;
+  }
 }
 /*<form name="convectorForm">
 
@@ -133,5 +194,4 @@ export class FormRowService {
       Beräkna
     </button>
   </div>
-</form>
-*/
+</form>*/

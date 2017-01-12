@@ -1,50 +1,37 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { DimDataService } from '../../providers/dim-data-service';
-import { FormRowService } from '../../providers/form-row-service';
-
-
-
+import { Component, ViewChild } from '@angular/core';
+import { SystemDropdown } from './components/system-dropdown.component';
+import { DimensionForm } from './components/form.component';
 
 @Component({
   selector: 'page-dimension-form',
-  templateUrl: 'dimension-form.html'
+  templateUrl: 'dimension-form.html',
+  entryComponents : [SystemDropdown, DimensionForm]
 })
+
+
 export class DimensionFormPage {
+    databases: String[] = [];
+    @ViewChild(DimensionForm) dimensionForm: DimensionForm;
 
-  constructor(platform: Platform,
-              public dataService: DimDataService,
-              public rowService: FormRowService) {
 
-    platform.ready().then(() => {
-      this.getFormData();
-    });
+  constructor() {
   }
 
-  private errorMessage(error){
-    console.log(error);
+  onSystemDropdownChange(system: String){
+    this.dimensionForm.changeForm(system);
   }
 
-  private setFormRows(rows){
-    if(rows.length > 0) {
-      for (let i = 0, max = rows.length; i < max; i++) {
-        let row = this.rowService.createFormRow(rows.item(i));
-        console.log(row);
-        //console.log(JSON.stringify(rows.item(i)))
-      }
-    } else {
-      console.log("inga rader");
+  /*private setFormRows(rows){
+
+    let form: any =  document.getElementById('form-row');
+    let htmlString: string;
+
+    for (let i = 0; i < rows.length; i++) {
+      //rows[i] = instance of class FormRow
+      htmlString += rows[i].createFormRow();
     }
-  }
+    form.innerHTML = htmlString;
+  }*/
 
-  private getFormData(){
-    this.dataService.getData('Proline.sqlite', 'SELECT * FROM input_fields')
-    .then(this.setFormRows)
-    .catch(this.errorMessage);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DimensionFormPage');
-  }
 
 }

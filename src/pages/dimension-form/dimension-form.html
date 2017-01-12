@@ -1,18 +1,17 @@
-<!--
-  Generated template for the DimensionForm page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>dimension-form</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
 
 <ion-content padding>
-<h1>hello</h1>
+  <h2 class="page-title">Dimensioner</h2>
+
+  <div class="form-wrapper">
+
+    <!-- shared error message -->
+    <div ng-show="error" class="alert alert-danger">
+        {{error}}
+    </div>
+
+    <system-dropdown (selectedHeatSystem)="onSystemDropdownChange($event)">
+    </system-dropdown>
+    <dimension-form></dimension-form>
+
+  </div>
 </ion-content>
