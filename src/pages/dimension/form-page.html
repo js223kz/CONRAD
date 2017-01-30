@@ -1,0 +1,12 @@
+
+<ion-content>
+  <con-header></con-header>
+    <ion-title>
+      Dimensioner
+    </ion-title>
+  <form-dropdown (selectedHeatSystem)="onSystemDropdownChange($event)">
+  </form-dropdown>
+  <div *ngIf="dataLoaded" class="form-wrapper">
+    <dimension-form [formRows]="formRows"></dimension-form>
+  </div>
+</ion-content>
