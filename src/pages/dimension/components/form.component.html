@@ -1,14 +1,10 @@
 
 
 <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
-  <div *ngFor="let row of formRows" class="form-row">
+  <div ion-item *ngFor="let row of formRows" class="item-borderless">
     <form-row [row]="row" [form]="form"></form-row>
   </div>
-  <div class="form-row">
-    <button type="submit" [disabled]="!form.valid">Beräkna</button>
+  <div ion-item>
+    <button ion-button type="submit" [disabled]="!form.valid">Beräkna</button>
   </div>
 </form>
-
-<div *ngIf="payLoad" class="form-row">
-  <strong>Saved the following values</strong><br>{{payLoad}}
-</div>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { DataService } from './providers/data.service';
-import { Header } from '../../app/header';
 import { FormRowModel } from './models/formrow.model'
 
 
@@ -44,4 +43,5 @@ export class DimensionFormPage{
     this.dataLoaded = false;
     this.changeForm(system);
   }
+
 }

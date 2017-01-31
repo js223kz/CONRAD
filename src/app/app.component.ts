@@ -6,6 +6,7 @@ import { ConstantService } from '../pages/dimension/providers/constant.service';
 import { DimensionFormPage } from '../pages/dimension/form-page';
 
 
+
 @Component({
   templateUrl: 'app.html',
   providers: [ConstantService]
@@ -26,7 +27,7 @@ export class MyApp {
 
       dbCloneService.cloneDatabases(constantService.DATABASES);
 
-
+      StatusBar.overlaysWebView(false);
       StatusBar.styleDefault();
       Splashscreen.hide();
 
