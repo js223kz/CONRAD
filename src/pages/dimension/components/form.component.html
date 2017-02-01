@@ -1,10 +1,10 @@
 
 
 <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
-  <div ion-item *ngFor="let row of formRows" class="item-borderless">
+  <div *ngFor="let row of formRows" class="item-borderless">
     <form-row [row]="row" [form]="form"></form-row>
   </div>
-  <div ion-item>
+  <div>
     <button ion-button type="submit" [disabled]="!form.valid">Beräkna</button>
   </div>
 </form>

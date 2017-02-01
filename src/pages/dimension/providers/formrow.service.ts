@@ -9,11 +9,14 @@ export class FormRowService {
 
   toFormGroup(formRows: FormRowModel<any>[] ) {
     let group: any = {};
+
     formRows.forEach((row)=>{
-        group[row.fieldName] = new FormControl(row.value, [Validators.required,
-                                                          CustomValidators.min(row.minValue),
-                                                          CustomValidators.max(row.maxValue),
-                                                          CustomValidators.digits])
+      let max = Number(row.maxValue);
+      let min = Number(row.minValue);
+
+      group[row.fieldName] = new FormControl(row.value, [Validators.required,
+                                                        CustomValidators.min(min),
+                                                        CustomValidators.max(max)]);
     });
 
     return new FormGroup(group);

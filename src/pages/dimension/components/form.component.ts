@@ -19,6 +19,7 @@ export class FormComponent implements OnInit{
 
   ngOnInit() {
     this.form = this.formrowService.toFormGroup(this.formRows);
+
   }
   onSubmit(value: any){
     console.log(JSON.stringify(value));

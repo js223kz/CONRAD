@@ -6,6 +6,11 @@ import { FormRowModel } from '../models/formrow.model';
 @Component({
   selector: 'form-row',
   templateUrl: 'formrow.component.html',
+  styles: [`
+            .error-wrapper{
+              backgroundcolor: red;
+            }
+            `]
 })
 
 export class FormRowComponent{

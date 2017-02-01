@@ -4,7 +4,33 @@ import { ConstantService } from '../providers/constant.service';
 
 @Component({
   selector: 'form-dropdown',
-  templateUrl: 'formdropdown.component.html',
+  template: `<div id="system-dropdown-wrapper">
+              <ion-label id="dropdown-label">Välj värmesystem</ion-label>
+              <ion-select id="dropdown-select" (ionChange)=onChange($event) required>
+                <ion-option  *ngFor="let i of heatSystems"
+                  [value]="i.dbName"
+                  [selected]="i.dbName == this.defaultSelected">
+                  {{i.displayName}}
+                </ion-option>
+              </ion-select>
+            </div>`,
+            styles: [`
+                      #system-dropdown-wrapper{
+                        overflow: hidden;
+                        border-top: 1px solid #ccc;
+                        border-bottom: 1px solid #ccc;
+                        margin-bottom: 20px;
+
+                      }
+                      #dropdown-label{
+                        float: left;
+                        width: 50%;
+                      }
+                      #dropdown-select{
+                        float: left;
+                        width: 50%;
+                      }`
+                    ]
 
 })
 

@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { DataService } from './providers/data.service';
-import { FormRowModel } from './models/formrow.model'
-
-
+import { FormRowModel } from './models/formrow.model';
 
 @Component({
   selector: 'form-page',
   templateUrl: 'form-page.html',
-  providers: [DataService]
+  providers: [DataService],
 })
 
 export class DimensionFormPage{
@@ -29,7 +27,6 @@ export class DimensionFormPage{
     this.dataService.getData(system, this.query)
     .then((data)=>{
       this.formRows = data;
-      console.log(JSON.stringify(this.formRows));
       this.dataLoaded = true;
     })
     .catch(this.errorMessage);

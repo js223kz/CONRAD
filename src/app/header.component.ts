@@ -3,26 +3,22 @@ import { Component} from '@angular/core';
 @Component({
   selector: 'con-header',
   template: `
-            <ion-header>
-              <ion-toolbar id="header-container" color="none">
+              <ion-navbar id="header-container" color="none">
                 <img id="header-logo"
                       src="/assets/images/logo.jpg"
                       alt="Logotype" />
-              </ion-toolbar>
-
-            </ion-header>
+              </ion-navbar>
             `,
             styles: [`
                       #header-container {
                         width: 100%;
                         height: auto;
-                        float: left;
+                        overflow: hidden;
                       }
                       #header-logo{
                         height: auto;
                         max-width: 50%;
                         float: right;
-
                       }`
                     ]
 })

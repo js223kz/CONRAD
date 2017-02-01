@@ -7,7 +7,7 @@ import { ContactPage } from '../pages/contact/contact';
 @Component({
   selector: 'con-footer',
   template: `
-            <ion-footer class="bar-footer">
+            <ion-footer id="footer">
               <ion-toolbar>
                 <ion-buttons start>
                   <button ion-button icon-only (click)="showContactPage()">
@@ -25,6 +25,12 @@ import { ContactPage } from '../pages/contact/contact';
               </ion-toolbar>
             </ion-footer>
             `,
+            styles: [`
+                      #footer {
+                        width: 100%;
+                        height: auto;
+                      }`
+                    ],
   entryComponents:[ ContactPage ]
 })
 

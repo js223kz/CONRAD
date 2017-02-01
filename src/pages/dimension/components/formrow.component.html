@@ -1,30 +1,27 @@
-<div [formGroup]="form">
-  <label [attr.for]="row.fieldName">{{row.name}}</label>
+<ion-list [formGroup]="form" no-lines>
   <div [ngSwitch]="row.controlType">
-    <input *ngSwitchCase="'text'" [formControlName]="row.fieldName"
+  <label>{{row.name}}</label>
+    <input input *ngSwitchCase="'text'" [formControlName]="row.fieldName"
               [type]="row.type" [id]="row.fieldName" [value]="row.value">
 
     <select [id]="row.fieldName" *ngSwitchCase="'dropdown'"
               [formControlName]="row.fieldName">
       <option *ngFor="let opt of row.options"
               [selected]="row.value == opt">{{opt}}
-      </option>
+      <option>
     </select>
-
+    <label [innerHTML]="row.symbol"></label>
   </div>
-
-  <div>
-    <span *ngIf="form.controls[row.fieldName].errors?.required &&
-          form.controls[row.fieldName].dirty">
-          {{row.name}} måste anges
-    </span>
-    <span *ngIf="form.controls[row.fieldName].errors?.min &&
-          form.controls[row.fieldName].dirty">
-          Min {{row.minValue}}
-    </span>
-    <span *ngIf="form.controls[row.fieldName].errors?.max &&
-          form.controls[row.fieldName].dirty">
-          Max {{row.maxValue}}
-    </span>
+  <div class="error" *ngIf="form.controls[row.fieldName].errors?.required &&
+        form.controls[row.fieldName].dirty">
+    <ion-label> {{row.name}} måste anges </ion-label>
   </div>
-</div>
+  <div class="error" *ngIf="form.controls[row.fieldName].errors?.min &&
+        form.controls[row.fieldName].dirty">
+    <ion-label> Min {{row.minValue}}</ion-label>
+  </div>
+  <div class="error" *ngIf="form.controls[row.fieldName].errors?.max &&
+        form.controls[row.fieldName].dirty">
+    <ion-label> Max {{row.maxValue}}</ion-label>
+  </div>
+</ion-list>
