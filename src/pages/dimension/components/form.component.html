@@ -1,6 +1,6 @@
 
 
-<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+<form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" novalidate>
   <div *ngFor="let row of formRows" class="item-borderless">
     <form-row [row]="row" [form]="form"></form-row>
   </div>

@@ -1,7 +1,7 @@
-import { Component} from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { Component, Input} from '@angular/core';
+import { NavController } from 'ionic-angular';
 import { ContactPage } from '../pages/contact/contact';
-
+import { ContactService } from '../pages/contact/providers/contact.service';
 
 
 @Component({
@@ -10,8 +10,11 @@ import { ContactPage } from '../pages/contact/contact';
             <ion-footer id="footer">
               <ion-toolbar>
                 <ion-buttons start>
-                  <button ion-button icon-only (click)="showContactPage()">
+                  <button *ngIf="showHomeBtn" ion-button icon-only (click)="showContactPage()">
                     <ion-icon ios="ios-home" md="md-home"></ion-icon>
+                  </button>
+                  <button *ngIf="!showHomeBtn" ion-button icon-only (click)="sendEmail()">
+                    <ion-icon name="mail"></ion-icon>
                   </button>
                 </ion-buttons>
 
@@ -31,18 +34,23 @@ import { ContactPage } from '../pages/contact/contact';
                         height: auto;
                       }`
                     ],
-  entryComponents:[ ContactPage ]
+  entryComponents:[ ContactPage ],
+  providers: [ContactService]
 })
 
 export class Footer {
-  clickedCall: boolean = false;
+  @Input() showHomeBtn: boolean;
 
-  constructor(public modalCtrl: ModalController) {
+  constructor(public navctrl: NavController,
+              public emailService: ContactService) {
   }
 
   showContactPage(){
-    let modal = this.modalCtrl.create(ContactPage);
-    modal.present(modal);
+    this.navctrl.push(ContactPage)
+  }
+
+  sendEmail(){
+    this.emailService.sendEmail();
   }
 
   makeCall(){

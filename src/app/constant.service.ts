@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 export class ConstantService {
   DATABASES: String[] = [];
   HEATSYSTEMS: Object[] = [];
+  EMAILADDRESS: string;
 
   constructor() {
     this.DATABASES = [
@@ -25,14 +26,7 @@ export class ConstantService {
       {dbName: "Convectors.sqlite", displayName: "Konvektorer + Radiatorer"},
       {dbName: "Vertical.sqlite", displayName: "Vertical"}
     ];
-    //dropdown values dimensions
-  /*  this.HEATSYSTEMS = [
-      "Proline",
-      "L-line",
-      "Skyline",
-      "Kamrör",
-      "Konvektorer + Radiatorer",
-      "Vertical"
-    ];*/
+
+    this.EMAILADDRESS = 'johanna@bythebeach.se';
   }
 }

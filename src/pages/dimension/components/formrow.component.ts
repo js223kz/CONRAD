@@ -5,12 +5,7 @@ import { FormRowModel } from '../models/formrow.model';
 
 @Component({
   selector: 'form-row',
-  templateUrl: 'formrow.component.html',
-  styles: [`
-            .error-wrapper{
-              backgroundcolor: red;
-            }
-            `]
+  templateUrl: 'formrow.component.html'
 })
 
 export class FormRowComponent{
@@ -22,4 +17,14 @@ export class FormRowComponent{
   get isValid() {
     return this.form.controls[this.row.fieldName].valid;
   }
+
 }
+/*$(document).ready(function() {
+        $('input').keypress(function(e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if ( (code==13) || (code==10)){
+                $(this).blur();
+                return false;
+            }
+        });
+      });*/

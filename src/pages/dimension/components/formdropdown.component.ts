@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { ConstantService } from '../providers/constant.service';
+import { ConstantService } from '../../../app/constant.service';
 
 @Component({
   selector: 'form-dropdown',
   template: `<div id="system-dropdown-wrapper">
-              <ion-label id="dropdown-label">Välj värmesystem</ion-label>
-              <ion-select id="dropdown-select" (ionChange)=onChange($event) required>
-                <ion-option  *ngFor="let i of heatSystems"
+              <ion-select (ionChange)=onChange($event) required>
+                <ion-option  class="dropdown-select" *ngFor="let i of heatSystems"
                   [value]="i.dbName"
                   [selected]="i.dbName == this.defaultSelected">
                   {{i.displayName}}
@@ -20,11 +19,9 @@ import { ConstantService } from '../providers/constant.service';
                         border-top: 1px solid #ccc;
                         border-bottom: 1px solid #ccc;
                         margin-bottom: 20px;
-
                       }
-                      #dropdown-label{
-                        float: left;
-                        width: 50%;
+                      .dropdown-select{
+                        width: 100%;
                       }
                       #dropdown-select{
                         float: left;

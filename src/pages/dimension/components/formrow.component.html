@@ -1,27 +1,51 @@
-<ion-list [formGroup]="form" no-lines>
-  <div [ngSwitch]="row.controlType">
-  <label>{{row.name}}</label>
-    <input input *ngSwitchCase="'text'" [formControlName]="row.fieldName"
-              [type]="row.type" [id]="row.fieldName" [value]="row.value">
+<ion-item-group [formGroup]="form">
+  <ion-row [ngSwitch]="row.controlType">
 
-    <select [id]="row.fieldName" *ngSwitchCase="'dropdown'"
-              [formControlName]="row.fieldName">
-      <option *ngFor="let opt of row.options"
-              [selected]="row.value == opt">{{opt}}
-      <option>
-    </select>
-    <label [innerHTML]="row.symbol"></label>
-  </div>
-  <div class="error" *ngIf="form.controls[row.fieldName].errors?.required &&
+    <ion-col width-33>
+      <ion-label>{{row.name}}</ion-label>
+    </ion-col>
+
+    <ion-col width-33>
+      <input *ngSwitchCase="'text'" [formControlName]="row.fieldName"
+                [type]="row.type" pattern="[0-9]*"
+                [id]="row.fieldName"
+                [value]="row.value"
+                style="width:70px;">
+
+      <select [id]="row.fieldName" *ngSwitchCase="'dropdown'"
+                [formControlName]="row.fieldName">
+        <option *ngFor="let opt of row.options"
+                [value]="opt"
+                [selected]="row.value == opt">{{opt}}
+        </option>
+      </select>
+    </ion-col>
+
+    <ion-col width-33>
+      <ion-label [innerHTML]="row.symbol"></ion-label>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row class="error" *ngIf="form.controls[row.fieldName].errors?.required &&
         form.controls[row.fieldName].dirty">
-    <ion-label> {{row.name}} måste anges </ion-label>
-  </div>
-  <div class="error" *ngIf="form.controls[row.fieldName].errors?.min &&
+    <ion-col>
+      <ion-label> {{row.name}} måste anges </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="error" *ngIf="form.controls[row.fieldName].errors?.min &&
         form.controls[row.fieldName].dirty">
-    <ion-label> Min {{row.minValue}}</ion-label>
-  </div>
-  <div class="error" *ngIf="form.controls[row.fieldName].errors?.max &&
+    <ion-col>
+      <ion-label> Min {{row.minValue}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="error" *ngIf="form.controls[row.fieldName].errors?.max &&
         form.controls[row.fieldName].dirty">
-    <ion-label> Max {{row.maxValue}}</ion-label>
-  </div>
-</ion-list>
+    <ion-col>
+      <ion-label> Max {{row.maxValue}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+</ion-item-group>

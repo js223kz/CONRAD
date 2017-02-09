@@ -1,24 +1,21 @@
-<ion-content class="content">
+<ion-content>
   <con-header></con-header>
-
-  <ion-card>
-    <ion-card-header>
-    Information
-    </ion-card-header>
-    <ion-card-content>
-    <p>
-        This is an example of what your application could look
-        like with Ionic 2.  If you choose to
-        <strong>dismiss</strong> this notification, it will
-        not be shown again for this session.  No data
-        is persisted in this application.
-    </p>
-    <ion-buttons end>
-        <button primary (click)="dismiss()">
-            Dismiss
-        </button>
-    </ion-buttons>
-    </ion-card-content>
-  </ion-card>
+  <div id="contact-container">
+    <div id="info-wrapper">
+      <ion-label id="contact-header">VVS Agenturer AB</ion-label>
+      <ion-label class="contact-text">
+          Travbanegatan 1, 213 77  MALMÖ
+      </ion-label>
+      <ion-label class="contact-text">
+        E-post: kontakt@conradvarme.se
+      </ion-label>
+      <ion-label class="contact-text">
+        Telefon: 040-680 32 50
+      </ion-label>
+      <ion-label class="contact-text">
+        Fax: 040-680 32 59
+      </ion-label>
+    </div>
+  </div>
 </ion-content>
-<con-footer></con-footer>
+<con-footer [showHomeBtn]="false"></con-footer>

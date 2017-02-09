@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { Footer } from './footer.component';
 import { Header } from './header.component';
 import { ContactPage } from '../pages/contact/contact';
-import { ConstantService } from '../pages/dimension/providers/constant.service';
+import { ConstantService } from './constant.service';
 import { DbCloneService } from '../pages/dimension/providers/dbclone.service';
 import { DataService } from '../pages/dimension/providers/data.service';
 import { DimensionFormPage } from '../pages/dimension/form-page';
@@ -41,7 +41,7 @@ import { FormDropDown } from '../pages/dimension/components/formdropdown.compone
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConstantService,
     DbCloneService,
-    DataService
+    DataService,
   ]
 })
 export class AppModule {}

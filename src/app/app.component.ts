@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen, Keyboard } from 'ionic-native';
 import { DbCloneService } from '../pages/dimension/providers/dbclone.service';
-import { ConstantService } from '../pages/dimension/providers/constant.service';
+import { ConstantService } from './constant.service';
 import { DimensionFormPage } from '../pages/dimension/form-page';
 
 
 
 @Component({
   templateUrl: 'app.html',
-  providers: [ConstantService]
 
 })
 export class MyApp {
@@ -21,7 +20,7 @@ export class MyApp {
 
     platform.ready().then(() => {
       if((<any>window).cordova && (<any>window).cordova.plugins.Keyboard) {
-        Keyboard.hideKeyboardAccessoryBar(true);
+        //Keyboard.hideKeyboardAccessoryBar(true);
         Keyboard.disableScroll(true);
       }
 

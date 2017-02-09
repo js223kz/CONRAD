@@ -22,6 +22,7 @@ export class FormComponent implements OnInit{
 
   }
   onSubmit(value: any){
-    console.log(JSON.stringify(value));
+    //take form values and make calculations
+    console.log("onsubmit:" + JSON.stringify(value));
   }
 }
