@@ -6,8 +6,7 @@
         </form-dropdown>
     </ion-toolbar>
     <div *ngIf="dataLoaded" class="form-wrapper">
-        <dimension-form [formRows]="formRows">
-        </dimension-form>
+        <dimension-form [formRows]="formRows" (formSubmitted) ="onFormSubmission($event)"></dimension-form>
     </div>
 </ion-content>
 <con-footer [showHomeBtn]="true"></con-footer>

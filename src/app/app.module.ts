@@ -5,22 +5,22 @@ import { CustomFormsModule } from 'ng2-validation'
 import { MyApp } from './app.component';
 import { Footer } from './footer.component';
 import { Header } from './header.component';
+import { DimensionFormPage } from '../pages/dimension-form/form-page';
 import { ContactPage } from '../pages/contact/contact';
-import { ConstantService } from './constant.service';
-import { DbCloneService } from '../pages/dimension/providers/dbclone.service';
-import { DataService } from '../pages/dimension/providers/data.service';
-import { DimensionFormPage } from '../pages/dimension/form-page';
-import { FormComponent } from '../pages/dimension/components/form.component';
-import { FormRowComponent } from '../pages/dimension/components/formrow.component';
-import { FormDropDown } from '../pages/dimension/components/formdropdown.component';
+import { DimensionTablePage } from '../pages/dimension-table/dimension-table';
+import { DataService } from '../pages/dimension-form/providers/data.service';
+import { FormComponent } from '../pages/dimension-form/components/form.component';
+import { FormRowComponent } from '../pages/dimension-form/components/formrow.component';
+import { FormDropDown } from '../pages/dimension-form/components/formdropdown.component';
 
 @NgModule({
   declarations: [
     MyApp,
     DimensionFormPage,
+    DimensionTablePage,
+    ContactPage,
     Footer,
     Header,
-    ContactPage,
     FormComponent,
     FormRowComponent,
     FormDropDown
@@ -35,12 +35,11 @@ import { FormDropDown } from '../pages/dimension/components/formdropdown.compone
   entryComponents: [
     MyApp,
     DimensionFormPage,
-    ContactPage
+    ContactPage,
+    DimensionTablePage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ConstantService,
-    DbCloneService,
     DataService,
   ]
 })

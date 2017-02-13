@@ -1,4 +1,4 @@
-import { Component, Input, OnInit }from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter }from '@angular/core';
 import { FormRowModel } from '../models/formrow.model';
 import { FormGroup } from '@angular/forms';
 import { FormRowService } from '../providers/formrow.service';
@@ -14,15 +14,18 @@ import { FormRowService } from '../providers/formrow.service';
 export class FormComponent implements OnInit{
   @Input() formRows: FormRowModel<any>[];
   @Input() form: FormGroup;
+  @Output() formSubmitted = new EventEmitter<any>();
 
-  constructor(public formrowService: FormRowService) {}
+
+  constructor(public formrowService: FormRowService) {
+              }
 
   ngOnInit() {
     this.form = this.formrowService.toFormGroup(this.formRows);
 
   }
+
   onSubmit(value: any){
-    //take form values and make calculations
-    console.log("onsubmit:" + JSON.stringify(value));
+    this.formSubmitted.emit(value);
   }
 }

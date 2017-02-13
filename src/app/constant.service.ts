@@ -6,6 +6,7 @@ export class ConstantService {
   DATABASES: String[] = [];
   HEATSYSTEMS: Object[] = [];
   EMAILADDRESS: string;
+  PHONENUMBER: string;
 
   constructor() {
     this.DATABASES = [
@@ -28,5 +29,7 @@ export class ConstantService {
     ];
 
     this.EMAILADDRESS = 'johanna@bythebeach.se';
+
+    this.PHONENUMBER = '+46705266130';
   }
 }

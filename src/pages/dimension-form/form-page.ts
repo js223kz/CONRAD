@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Platform, NavController} from 'ionic-angular';
 import { DataService } from './providers/data.service';
 import { FormRowModel } from './models/formrow.model';
-
+import { DimensionTablePage } from '../dimension-table/dimension-table';
 
 
 @Component({
@@ -16,8 +16,10 @@ export class DimensionFormPage{
   dataLoaded: boolean = false;
   query: string = 'SELECT * FROM input_fields';
   defaultSystem: string = 'Proline.sqlite';
+  selectedSystem: string;
 
   constructor(platform: Platform,
+    private navCtrl: NavController,
     public dataService: DataService) {
 
     platform.ready().then(() => {
@@ -38,9 +40,14 @@ export class DimensionFormPage{
     console.log(JSON.stringify("error" + error));
   }
 
-  onSystemDropdownChange(system: string){
-    this.dataLoaded = false;
-    this.changeForm(system);
+  onFormSubmission(formValues: any){
+    this.navCtrl.push(DimensionTablePage,
+      {data: JSON.stringify(formValues), system: this.selectedSystem});
   }
 
+  onSystemDropdownChange(system: string){
+    this.dataLoaded = false;
+    this.selectedSystem = system;
+    this.changeForm(system);
+  }
 }

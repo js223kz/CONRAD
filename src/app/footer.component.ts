@@ -2,6 +2,8 @@ import { Component, Input} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ContactPage } from '../pages/contact/contact';
 import { ContactService } from '../pages/contact/providers/contact.service';
+import { ConstantService } from './constant.service';
+
 
 
 @Component({
@@ -21,9 +23,11 @@ import { ContactService } from '../pages/contact/providers/contact.service';
                 <ion-title id="footer-title">VVS Agenturer AB</ion-title>
 
                 <ion-buttons end hideWhen="ipad">
-                  <button ion-button icon-only (click)="makeCall()">
-                    <ion-icon ios="ios-call" md="md-call"></ion-icon>
-                  </button>
+                  <a href="tel:{{phoneNumber}}">
+                    <button ion-button icon-only (click)="makeCall()">
+                      <ion-icon ios="ios-call" md="md-call"></ion-icon>
+                    </button>
+                  </a>
                 </ion-buttons>
               </ion-toolbar>
             </ion-footer>
@@ -40,9 +44,12 @@ import { ContactService } from '../pages/contact/providers/contact.service';
 
 export class Footer {
   @Input() showHomeBtn: boolean;
-
+  phoneNumber: string;
   constructor(public navctrl: NavController,
-              public emailService: ContactService) {
+              public contactService: ContactService,
+              public constantService: ConstantService) {
+
+    this.phoneNumber = constantService.PHONENUMBER;
   }
 
   showContactPage(){
@@ -50,11 +57,11 @@ export class Footer {
   }
 
   sendEmail(){
-    this.emailService.sendEmail();
+    this.contactService.sendEmail();
   }
 
   makeCall(){
-    console.log("make call");
+    console.log("make call" + this.phoneNumber);
   }
 
 }

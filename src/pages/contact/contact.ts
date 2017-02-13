@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ViewController} from 'ionic-angular';
 
 @Component({
   selector: 'page-contact',
@@ -12,9 +11,5 @@ import { ViewController} from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(private viewCtrl: ViewController) {}
-
-  dismiss() {
-     this.viewCtrl.dismiss();
-   }
+  constructor() {}
 }

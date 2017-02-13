@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.conrad265957" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>conrad</name>
   <description>An awesome Ionic/Cordova app.</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <author email="johanna@bythebeach.se" href="http://ionicframework.com/">ByTheBeach</author>
   <content src="index.html"/>
   <access origin="*"/>
   <access origin="tel:*" launch-external="yes"/>
@@ -12,6 +12,8 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+  <allow-navigation href="tel:*"/>
+  <allow-navigation href="http://192.168.10.216:8100"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
@@ -38,5 +40,4 @@
   <plugin name="cordova-plugin-dbcopy" spec="https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git"/>
   <plugin name="cordova-sqlite-storage" spec="~2.0.0"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
-  <allow-navigation href="http://192.168.10.216:8100"/>
 </widget>

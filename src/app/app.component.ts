@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen, Keyboard } from 'ionic-native';
-import { DbCloneService } from '../pages/dimension/providers/dbclone.service';
+import { DbCloneService } from '../pages/dimension-form/providers/dbclone.service';
 import { ConstantService } from './constant.service';
-import { DimensionFormPage } from '../pages/dimension/form-page';
+import { DimensionFormPage } from '../pages/dimension-form/form-page';
 
 
 
 @Component({
   templateUrl: 'app.html',
+  providers: [ConstantService, DbCloneService]
 
 })
 export class MyApp {
