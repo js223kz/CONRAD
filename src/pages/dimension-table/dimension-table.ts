@@ -6,10 +6,10 @@ import { NavParams } from 'ionic-angular';
   templateUrl: 'dimension-table.html'
 })
 export class DimensionTablePage {
-
+  pageTitle: string;
   constructor(public navParams: NavParams) {
     console.log(navParams.get('data'));
-    console.log(navParams.get('system'));
+    this.pageTitle = navParams.get('system')
   }
 
   ionViewDidLoad() {

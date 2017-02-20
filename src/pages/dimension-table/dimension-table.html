@@ -1,5 +1,35 @@
 
 <ion-content>
   <con-header></con-header>
-  <h1>Hello Table page</h1>
+
+  <ion-toolbar class="page-title-wrapper">
+    <ion-label class="page-title">{{pageTitle}}</ion-label>
+    <ion-row>
+      <ion-col width-33>
+        <ion-buttons start>
+          <button ion-button icon-only (click)="showContactPage()">
+            <ion-icon ios="ios-print" md="md-print"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+
+      <ion-col width-33>
+        <ion-buttons start>
+          <button ion-button icon-only (click)="showContactPage()">
+            <ion-icon ios="ios-add-circle" md="md-add-circl"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+
+      <ion-col width-33>
+        <ion-buttons end>
+          <button ion-button icon-only (click)="showContactPage()">
+            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
 </ion-content>
+<con-footer [showHomeBtn]="true"></con-footer>

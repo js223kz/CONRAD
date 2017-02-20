@@ -3,8 +3,6 @@ import { FormRowModel } from '../models/formrow.model';
 import { FormGroup } from '@angular/forms';
 import { FormRowService } from '../providers/formrow.service';
 
-
-
 @Component({
   selector: 'dimension-form',
   templateUrl: 'form.component.html',
