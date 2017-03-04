@@ -9,7 +9,7 @@ export class DimensionTablePage {
   pageTitle: string;
   constructor(public navParams: NavParams) {
     console.log(navParams.get('data'));
-    this.pageTitle = navParams.get('system')
+    this.pageTitle = navParams.get('system').displayName;
   }
 
   ionViewDidLoad() {

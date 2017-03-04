@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Platform, NavController} from 'ionic-angular';
 import { DataService } from './providers/data.service';
+import { ConstantService } from '../../shared/providers/constant.service';
 import { FormRowModel } from './models/formrow.model';
 import { DimensionTablePage } from '../dimension-table/dimension-table';
 
@@ -15,15 +16,19 @@ export class DimensionFormPage{
   formRows: FormRowModel<any>[] = []
   dataLoaded: boolean = false;
   query: string = 'SELECT * FROM input_fields';
-  defaultSystem: string = 'Proline.sqlite';
-  selectedSystem: string;
+  selectedSystem: Object;
 
   constructor(platform: Platform,
     private navCtrl: NavController,
-    public dataService: DataService) {
+    public dataService: DataService,
+    public constantService: ConstantService) {
+
+    this.selectedSystem = constantService.DEFAULTSYSTEM;
+
+    console.log("defaultSelected: " + JSON.stringify(this.selectedSystem))
 
     platform.ready().then(() => {
-      this.changeForm(this.defaultSystem);
+      this.changeForm('Proline.sqlite');
     });
   }
 
@@ -41,13 +46,14 @@ export class DimensionFormPage{
   }
 
   onFormSubmission(formValues: any){
+    console.log("change page: " + JSON.stringify(this.selectedSystem));
     this.navCtrl.push(DimensionTablePage,
       {data: JSON.stringify(formValues), system: this.selectedSystem});
   }
 
-  onSystemDropdownChange(system: string){
+  onSystemDropdownChange(system: any){
     this.dataLoaded = false;
     this.selectedSystem = system;
-    this.changeForm(system);
+    this.changeForm(system.dbName);
   }
 }

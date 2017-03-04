@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen, Keyboard } from 'ionic-native';
 import { DbCloneService } from '../pages/dimension-form/providers/dbclone.service';
-import { ConstantService } from './constant.service';
+import { ConstantService } from '../shared/providers/constant.service';
 import { DimensionFormPage } from '../pages/dimension-form/form-page';
-
-
 
 @Component({
   templateUrl: 'app.html',
@@ -21,8 +19,8 @@ export class MyApp {
 
     platform.ready().then(() => {
       if((<any>window).cordova && (<any>window).cordova.plugins.Keyboard) {
-        //Keyboard.hideKeyboardAccessoryBar(true);
-        Keyboard.disableScroll(true);
+        (<any>window).cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+        Keyboard.disableScroll(false);
       }
 
       dbCloneService.cloneDatabases(constantService.DATABASES);

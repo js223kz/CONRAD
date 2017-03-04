@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { EventEmitter, Output, Component, OnInit } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { ConstantService } from '../../../app/constant.service';
+import { ConstantService } from '../../../shared/providers/constant.service';
 
 @Component({
   selector: 'form-dropdown',
   template: `<div id="system-dropdown-wrapper">
               <ion-select (ionChange)=onChange($event) required>
                 <ion-option  class="dropdown-select" *ngFor="let i of heatSystems"
-                  [value]="i.dbName"
+                  [value]="i"
                   [selected]="i.dbName == this.defaultSelected">
                   {{i.displayName}}
                 </ion-option>
@@ -33,17 +33,13 @@ import { ConstantService } from '../../../app/constant.service';
 
 export class FormDropDown {
   heatSystems: Object[];
-  defaultSelected: string;
-  @Output() selectedHeatSystem = new EventEmitter<String>();
+
+  defaultSelected: Object;
+  @Output() selectedHeatSystem = new EventEmitter<Object>();
 
   constructor(platform: Platform, public constantService: ConstantService) {
-
     this.heatSystems = constantService.HEATSYSTEMS;
     this.defaultSelected = this.heatSystems[0]["dbName"];
-
-    platform.ready().then(() => {
-      this.onChange(this.defaultSelected);
-    });
   }
 
   onChange(selected){

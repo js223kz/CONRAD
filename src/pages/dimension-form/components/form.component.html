@@ -1,10 +1,10 @@
 
 
-<form (ngSubmit)="onSubmit(form.value)" [formGroup]="form" novalidate>
+<form [formGroup]="form" (keydown)="keyDownFunction($event)" novalidate>
   <div *ngFor="let row of formRows" class="item-borderless">
     <form-row [row]="row" [form]="form"></form-row>
   </div>
   <div>
-    <button ion-button type="submit" [disabled]="!form.valid">Beräkna</button>
+    <button ion-button type="button" [disabled]="!form.valid" (click) ="onSubmit(form.value)">Beräkna</button>
   </div>
 </form>

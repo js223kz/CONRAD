@@ -7,6 +7,7 @@ export class ConstantService {
   HEATSYSTEMS: Object[] = [];
   EMAILADDRESS: string;
   PHONENUMBER: string;
+  DEFAULTSYSTEM: Object;
 
   constructor() {
     this.DATABASES = [
@@ -28,8 +29,13 @@ export class ConstantService {
       {dbName: "Vertical.sqlite", displayName: "Vertical"}
     ];
 
-    this.EMAILADDRESS = 'johanna@bythebeach.se';
+    this.DEFAULTSYSTEM = {
+        dbName: "Proline.sqlite",
+        displayName: "Proline"
+    };
 
-    this.PHONENUMBER = '+46705266130';
+    this.EMAILADDRESS = "johanna@bythebeach.se";
+
+    this.PHONENUMBER = "+46705266130";
   }
 }

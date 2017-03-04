@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EmailComposer } from 'ionic-native';
-import { ConstantService } from '../../../app/constant.service';
+import { ConstantService } from '../../../shared/providers/constant.service';
 
 @Injectable()
 export class ContactService {

@@ -12,6 +12,7 @@ export class DataService {
   }
 
   public getData(database: String, query: String): any{
+    console.log("getdata: " + database);
     return new Promise((resolve, reject)=>{
       let data: any[] = [];
       this.db.openDatabase({
@@ -40,5 +41,9 @@ export class DataService {
           reject('Unable to open database');
       });
     });
+  }
+
+  public getTableData(){
+
   }
 }
