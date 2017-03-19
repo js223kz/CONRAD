@@ -17,14 +17,4 @@ export class FormRowComponent{
   get isValid() {
     return this.form.controls[this.row.fieldName].valid;
   }
-
 }
-/*$(document).ready(function() {
-        $('input').keypress(function(e) {
-            var code = (e.keyCode ? e.keyCode : e.which);
-            if ( (code==13) || (code==10)){
-                $(this).blur();
-                return false;
-            }
-        });
-      });*/

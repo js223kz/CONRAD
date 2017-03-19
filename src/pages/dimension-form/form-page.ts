@@ -1,9 +1,11 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { Platform, NavController} from 'ionic-angular';
-import { DataService } from './providers/data.service';
+import { DataService } from '../../shared/providers/data.service';
 import { ConstantService } from '../../shared/providers/constant.service';
-import { FormRowModel } from './models/formrow.model';
+import { FormRowModel } from '../../shared/models/formrow.model';
 import { DimensionTablePage } from '../dimension-table/dimension-table';
+import { DropDownControl } from '../../shared/models/formcontrol.model';
+import { InputControl } from '../../shared/models/formcontrol.model';
 
 
 @Component({
@@ -18,14 +20,12 @@ export class DimensionFormPage{
   query: string = 'SELECT * FROM input_fields';
   selectedSystem: Object;
 
-  constructor(platform: Platform,
+  constructor(private platform: Platform,
     private navCtrl: NavController,
-    public dataService: DataService,
-    public constantService: ConstantService) {
+    private dataService: DataService,
+    private constantService: ConstantService) {
 
     this.selectedSystem = constantService.DEFAULTSYSTEM;
-
-    console.log("defaultSelected: " + JSON.stringify(this.selectedSystem))
 
     platform.ready().then(() => {
       this.changeForm('Proline.sqlite');
@@ -33,9 +33,18 @@ export class DimensionFormPage{
   }
 
   changeForm(system: string){
+    let formControls: any[] = [];
+
     this.dataService.getData(system, this.query)
     .then((data)=>{
-      this.formRows = data;
+      for (let i = 0; i < data.length; i++) {
+        if(data[i].steps == null){
+          formControls.push(new InputControl(data[i], system));
+        }else{
+          formControls.push(new DropDownControl(data[i], system));
+        }
+      }
+      this.formRows = formControls;
       this.dataLoaded = true;
     })
     .catch(this.errorMessage);
@@ -46,9 +55,12 @@ export class DimensionFormPage{
   }
 
   onFormSubmission(formValues: any){
-    console.log("change page: " + JSON.stringify(this.selectedSystem));
+    let inputObject = {
+      formValues: formValues,
+      system: this.selectedSystem
+    }
     this.navCtrl.push(DimensionTablePage,
-      {data: JSON.stringify(formValues), system: this.selectedSystem});
+      { inputObject: inputObject });
   }
 
   onSystemDropdownChange(system: any){

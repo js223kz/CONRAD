@@ -13,10 +13,14 @@ export class FormRowService {
     formRows.forEach((row)=>{
       let max = Number(row.maxValue);
       let min = Number(row.minValue);
+      if(row.system === "Vertical.sqlite"){
+        group[row.fieldName] = new FormControl(row.value, [Validators.required]);
+      }else{
+        group[row.fieldName] = new FormControl(row.value, [Validators.required,
+                                                          CustomValidators.min(min),
+                                                          CustomValidators.max(max)]);
+      }
 
-      group[row.fieldName] = new FormControl(row.value, [Validators.required,
-                                                        CustomValidators.min(min),
-                                                        CustomValidators.max(max)]);
     });
 
     return new FormGroup(group);

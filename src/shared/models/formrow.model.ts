@@ -8,9 +8,10 @@ export class FormRowModel<T> {
   symbol: string;
   name: string;
   options: number[];
-  controlType: string
+  controlType: string;
+  system: string;
 
-  constructor(rowData){
+  constructor(rowData, system){
     this.value = rowData.default_value
     this.fieldName = rowData.fieldname;
     this.minValue = rowData.min_value;
@@ -18,6 +19,7 @@ export class FormRowModel<T> {
     this.symbol = rowData.symbol;
     this.name = rowData.name;
     this.required = true;
+    this.system = system;
 
   }
 }

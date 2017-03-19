@@ -1,6 +1,6 @@
-import { EventEmitter, Output, Component, OnInit } from '@angular/core';
+import { EventEmitter, Output, Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { ConstantService } from '../../../shared/providers/constant.service';
+import { ConstantService } from '../providers/constant.service';
 
 @Component({
   selector: 'form-dropdown',

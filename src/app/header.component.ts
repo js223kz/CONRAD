@@ -5,7 +5,7 @@ import { Component} from '@angular/core';
   template: `
               <ion-navbar id="header-container" color="none">
                 <img id="header-logo"
-                      src="/assets/images/logo.jpg"
+                      src="./assets/images/logo.jpg"
                       alt="Logotype" />
               </ion-navbar>
             `,

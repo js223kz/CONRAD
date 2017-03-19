@@ -1,7 +1,7 @@
-<ion-content>
+<ion-content padding-bottom>
   <con-header></con-header>
     <ion-toolbar class="page-title-wrapper">
-        <ion-label class="page-title">Dimensioner</ion-label>
+        <ion-label class="ion-title">Dimensioner</ion-label>
         <form-dropdown (selectedHeatSystem)="onSystemDropdownChange($event)">
         </form-dropdown>
     </ion-toolbar>
@@ -9,4 +9,5 @@
         <dimension-form [formRows]="formRows" (formSubmitted) ="onFormSubmission($event)"></dimension-form>
     </div>
 </ion-content>
+
 <con-footer [showHomeBtn]="true"></con-footer>

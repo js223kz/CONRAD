@@ -8,10 +8,12 @@ import { Header } from './header.component';
 import { DimensionFormPage } from '../pages/dimension-form/form-page';
 import { ContactPage } from '../pages/contact/contact';
 import { DimensionTablePage } from '../pages/dimension-table/dimension-table';
-import { DataService } from '../pages/dimension-form/providers/data.service';
-import { FormComponent } from '../pages/dimension-form/components/form.component';
-import { FormRowComponent } from '../pages/dimension-form/components/formrow.component';
-import { FormDropDown } from '../pages/dimension-form/components/formdropdown.component';
+import { DataService } from '../shared/providers/data.service';
+import { FormComponent } from '../shared/components/form.component';
+import { FormRowComponent } from '../shared/components/formrow.component';
+import { FormDropDown } from '../shared/components/formdropdown.component';
+import { GridComponent } from '../shared/components/grid.component';
+import { InfoboxComponent } from '../shared/components/infobox.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FormDropDown } from '../pages/dimension-form/components/formdropdown.co
     Header,
     FormComponent,
     FormRowComponent,
-    FormDropDown
+    FormDropDown,
+    GridComponent,
+    InfoboxComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -40,7 +44,6 @@ import { FormDropDown } from '../pages/dimension-form/components/formdropdown.co
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataService,
-  ]
+    DataService  ]
 })
 export class AppModule {}

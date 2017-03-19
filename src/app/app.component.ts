@@ -5,6 +5,7 @@ import { DbCloneService } from '../pages/dimension-form/providers/dbclone.servic
 import { ConstantService } from '../shared/providers/constant.service';
 import { DimensionFormPage } from '../pages/dimension-form/form-page';
 
+
 @Component({
   templateUrl: 'app.html',
   providers: [ConstantService, DbCloneService]

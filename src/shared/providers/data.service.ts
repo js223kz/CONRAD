@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { SQLite } from 'ionic-native';
-import { DropDownControl } from '../models/formcontrol.model';
-import { InputControl } from '../models/formcontrol.model';
 
 @Injectable()
 export class DataService {
@@ -12,7 +10,6 @@ export class DataService {
   }
 
   public getData(database: String, query: String): any{
-    console.log("getdata: " + database);
     return new Promise((resolve, reject)=>{
       let data: any[] = [];
       this.db.openDatabase({
@@ -23,17 +20,12 @@ export class DataService {
           this.db.executeSql(query, {}).then((res) => {
             if(res.rows.length > 0) {
               for (let i = 0; i < res.rows.length; i++) {
-                console.log("steps: " + res.rows.item(i).steps);
-                if(res.rows.item(i).steps == null){
-                  data.push(new InputControl(res.rows.item(i)));
-                }else{
-                  data.push(new DropDownControl(res.rows.item(i)));
-                }
+                data.push(res.rows.item(i));
               }
+              resolve(data);
             } else {
               reject("Empty database");
             }
-              resolve(data);
           }, (err) => {
             reject('Unable to execute sql');
           });
@@ -41,9 +33,5 @@ export class DataService {
           reject('Unable to open database');
       });
     });
-  }
-
-  public getTableData(){
-
   }
 }
