@@ -7,6 +7,7 @@ export class DataService {
   private db: any;
   constructor() {
     this.db = new SQLite();
+
   }
 
   public getData(database: String, query: String): any{
@@ -14,10 +15,12 @@ export class DataService {
       let data: any[] = [];
       this.db.openDatabase({
         name: database,
-        location:0,
+        location:"default",
 
         }).then(() => {
+            console.log("DB: " + JSON.stringify(this.db));
           this.db.executeSql(query, {}).then((res) => {
+            console.log("res rows: " + JSON.stringify(res.rows));
             if(res.rows.length > 0) {
               for (let i = 0; i < res.rows.length; i++) {
                 data.push(res.rows.item(i));

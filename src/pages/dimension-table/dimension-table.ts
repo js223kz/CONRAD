@@ -14,11 +14,11 @@ export class DimensionTablePage{
   databaseName: any;
   formValues: string;
   query: string = 'SELECT * FROM article';
-  selection: string;
+  convectorSelection: string;
+  finnedSelection: string;
   tableRows: any [];
   infoboxVisible: boolean = false;
   inputObject: Object;
-
   constructor(private navParams: NavParams,
               private dataService: DataService,
               private calculationService: CalculationService) {
@@ -27,22 +27,28 @@ export class DimensionTablePage{
     this.pageTitle = this.inputObject["system"].displayName;
     this.databaseName = this.inputObject["system"].dbName;
     this.tableRows = [];
-    this.selection = `${this.query} WHERE height =
-                      ${this.inputObject["formValues"].height}`;
-    this.calculate(this.inputObject);
+    this.convectorSelection = `${this.query} WHERE height =
+                                ${this.inputObject["formValues"].height}`;
 
+    this.finnedSelection = `SELECT name AS artno,
+                            c${this.inputObject["formValues"].return} AS wpm_nom,
+                            tubes FROM article WHERE name LIKE
+                            '${this.inputObject["formValues"].flow}${this.inputObject["formValues"].room}%'`;
+
+    this.calculate(this.inputObject);
   }
 
   calculate(inputObject){
     if (this.databaseName === "Convectors.sqlite"){
-      this.query = this.selection;
+      this.query = this.convectorSelection;
     }
-    console.log(this.query);
+    if (this.databaseName === "Finned.sqlite"){
+      this.query = this.finnedSelection;
+    }
     this.dataService.getData(this.databaseName, this.query)
     .then((dbRows)=>{
       dbRows.forEach((row)=>{
         this.tableRows.push(this.calculationService.setTableRow(row, this.inputObject));
-
       });
     })
     .catch(this.errorMessage);

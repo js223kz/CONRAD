@@ -44,7 +44,9 @@ export class DimensionFormPage{
           formControls.push(new DropDownControl(data[i], system));
         }
       }
+
       this.formRows = formControls;
+      console.log("Formrows: " + JSON.stringify(this.formRows));
       this.dataLoaded = true;
     })
     .catch(this.errorMessage);
