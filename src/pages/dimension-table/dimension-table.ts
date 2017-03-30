@@ -14,11 +14,13 @@ export class DimensionTablePage{
   databaseName: any;
   formValues: string;
   query: string = 'SELECT * FROM article';
+  descriptionQuery: string = 'SELECT * FROM description';
   convectorSelection: string;
   finnedSelection: string;
   tableRows: any [];
-  infoboxVisible: boolean = false;
+  descriptionRows: any [];
   inputObject: Object;
+
   constructor(private navParams: NavParams,
               private dataService: DataService,
               private calculationService: CalculationService) {
@@ -27,6 +29,7 @@ export class DimensionTablePage{
     this.pageTitle = this.inputObject["system"].displayName;
     this.databaseName = this.inputObject["system"].dbName;
     this.tableRows = [];
+    this.descriptionRows = [];
     this.convectorSelection = `${this.query} WHERE height =
                                 ${this.inputObject["formValues"].height}`;
 
@@ -35,10 +38,32 @@ export class DimensionTablePage{
                             tubes FROM article WHERE name LIKE
                             '${this.inputObject["formValues"].flow}${this.inputObject["formValues"].room}%'`;
 
-    this.calculate(this.inputObject);
+    this.getTableRows(this.inputObject);
   }
 
-  calculate(inputObject){
+  getTableRows(inputObject){
+    if (this.databaseName === "Convectors.sqlite"){
+      this.query = this.convectorSelection;
+    }
+    if (this.databaseName === "Finned.sqlite"){
+      this.query = this.finnedSelection;
+    }
+    let getTableRows = this.dataService.getData(this.databaseName, this.query);
+    let getDescRows = this.dataService.getData(this.databaseName, this.descriptionQuery);
+
+    Promise.all([getTableRows, getDescRows])
+    .then((rows)=>{
+      rows[0].forEach((row)=>{
+        this.tableRows.push(this.calculationService.setTableRow(row, this.inputObject));
+      });
+      rows[1].forEach((row)=>{
+        this.descriptionRows.push(this.calculationService.setTableRow(row, this.inputObject));
+      });
+    })
+    .catch(this.errorMessage);
+  }
+
+  /*calculate(inputObject){
     if (this.databaseName === "Convectors.sqlite"){
       this.query = this.convectorSelection;
     }
@@ -52,15 +77,9 @@ export class DimensionTablePage{
       });
     })
     .catch(this.errorMessage);
-  }
+  }*/
 
   errorMessage(error){
     console.log(JSON.stringify("error: " + error));
   }
-
-  showInfoBox(){
-    this.infoboxVisible = true;
-  }
-
-
 }

@@ -4,36 +4,24 @@
   <ion-toolbar>
     <ion-label style="text-align: center;" class="ion-title">{{pageTitle}}</ion-label>
   </ion-toolbar>
-  <infobox *ngIf="infoboxVisible" [inputObject]="inputObject"></infobox>
-  <dimension-grid [tableRows]="tableRows"></dimension-grid>
+  <infobox [inputObject]="inputObject"></infobox>
+  <dimension-grid [tableRows]="tableRows" [descriptionRows]="descriptionRows"></dimension-grid>
 </ion-content>
 
 <ion-footer class="bar bar-footer">
   <ion-toolbar>
-      <ion-row>
-        <ion-col width-33>
-          <ion-buttons start>
-            <button class="action-btn" ion-button icon-only (click)="showContactPage()">
-              <ion-icon ios="ios-print" md="md-print"></ion-icon>
-            </button>
-          </ion-buttons>
-        </ion-col>
+    <ion-buttons start>
+      <button class="action-btn" ion-button icon-only (click)="showContactPage()">
+        <ion-icon ios="ios-print" md="md-print"></ion-icon>
+      </button>
+    </ion-buttons>
 
-        <ion-col width-33 class="footer-center-col">
-          <ion-buttons>
-            <button class="action-btn" ion-button icon-only (click)="showInfoBox()">
-              <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-            </button>
-          </ion-buttons>
-        </ion-col>
+    <ion-title id="footer-title">VVS Agenturer AB</ion-title>
 
-        <ion-col width-33>
-          <ion-buttons end>
-            <button class="action-btn" ion-button icon-only (click)="showContactPage()">
-              <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
-            </button>
-          </ion-buttons>
-        </ion-col>
-      </ion-row>
+    <ion-buttons end>
+      <button class="action-btn email" ion-button icon-only (click)="showContactPage()">
+        <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>

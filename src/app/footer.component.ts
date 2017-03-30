@@ -15,7 +15,7 @@ import { ConstantService } from '../shared/providers/constant.service';
                   <button class="action-btn" *ngIf="showHomeBtn" ion-button icon-only (click)="showContactPage()">
                     <ion-icon ios="ios-home" md="md-home"></ion-icon>
                   </button>
-                  <button *ngIf="!showHomeBtn" ion-button icon-only (click)="sendEmail()">
+                  <button class="action-btn" *ngIf="!showHomeBtn" ion-button icon-only (click)="sendEmail()">
                     <ion-icon name="mail"></ion-icon>
                   </button>
                 </ion-buttons>

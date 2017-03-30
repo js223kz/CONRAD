@@ -42,5 +42,16 @@
       </ion-col>
     </ion-row>
   </div>
+  <div *ngFor="let bit of descriptionRows">
+    <ion-row class="table-row">
+      <ion-col>
+          <div class="tube_{{bit.tube}}"></div>
+      </ion-col>
+      <ion-col>
+          <div class="description-text">{{bit.desc}}</div>
+      </ion-col>
+
+    </ion-row>
+  </div>
 
 </div>

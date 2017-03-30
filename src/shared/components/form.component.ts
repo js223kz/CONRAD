@@ -7,23 +7,37 @@ import { FormRowService } from '../providers/formrow.service';
 @Component({
   selector: 'dimension-form',
   template: `
-            <div style="width:80%; margin-left:10%; margin-right:10%;">
+            <div id="form-wrapper" style="width:80%; padding-bottom:10%; margin-left:10%;">
               <form [formGroup]="form"
                     (keydown)="keyDownFunction($event)"
                     (ngSubmit)="onSubmit(form.value)"
                     novalidate>
                 <div *ngFor="let row of formRows"
-                class="item-borderless">
-                  <form-row minLen="row.minValue" maxLen="row.maxValue"[row]="row" [form]="form"></form-row>
+                      class="item-borderless">
+                  <form-row minLen="row.minValue"
+                            maxLen="row.maxValue"
+                            [row]="row"
+                            [form]="form">
+                  </form-row>
                 </div>
                 <div>
-                  <button style="width:100%;" ion-button type="submit"
+                  <button id="calc-button" style="width:100%; background-color:#7f7f7f;" ion-button type="submit"
                           [disabled]="!form.valid">
                           Beräkna
                   </button>
                 </div>
               </form>
               </div>`,
+  styles: [`
+            #form-wrapper:{
+              width: 80%;
+              margin-left: 10%;
+              margin-right: 10%;
+            }
+            #calc-button:{
+              width: 100%;
+              background-color: #7F7F7F !important;
+            }`],
   providers: [FormRowService]
 })
 
@@ -39,7 +53,7 @@ export class FormComponent implements OnInit{
   ngOnInit() {
     this.form = this.formrowService.toFormGroup(this.formRows);
   }
-
+//
   onSubmit(formValues: any){
     this.formSubmitted.emit(formValues);
   }
