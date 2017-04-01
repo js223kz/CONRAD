@@ -14,6 +14,8 @@ import { FormRowComponent } from '../shared/components/formrow.component';
 import { FormDropDown } from '../shared/components/formdropdown.component';
 import { GridComponent } from '../shared/components/grid.component';
 import { InfoboxComponent } from '../shared/components/infobox.component';
+import { PrintComponent } from '../shared/components/print.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { InfoboxComponent } from '../shared/components/infobox.component';
     FormRowComponent,
     FormDropDown,
     GridComponent,
-    InfoboxComponent
+    InfoboxComponent,
+    PrintComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),

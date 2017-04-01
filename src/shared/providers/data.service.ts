@@ -18,9 +18,7 @@ export class DataService {
         location:"default",
 
         }).then(() => {
-            console.log("DB: " + JSON.stringify(this.db));
           this.db.executeSql(query, {}).then((res) => {
-            console.log("res rows: " + JSON.stringify(res.rows));
             if(res.rows.length > 0) {
               for (let i = 0; i < res.rows.length; i++) {
                 data.push(res.rows.item(i));

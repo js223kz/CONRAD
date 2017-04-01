@@ -57,27 +57,11 @@ export class DimensionTablePage{
         this.tableRows.push(this.calculationService.setTableRow(row, this.inputObject));
       });
       rows[1].forEach((row)=>{
-        this.descriptionRows.push(this.calculationService.setTableRow(row, this.inputObject));
+        this.descriptionRows.push(row, this.inputObject);
       });
     })
     .catch(this.errorMessage);
   }
-
-  /*calculate(inputObject){
-    if (this.databaseName === "Convectors.sqlite"){
-      this.query = this.convectorSelection;
-    }
-    if (this.databaseName === "Finned.sqlite"){
-      this.query = this.finnedSelection;
-    }
-    this.dataService.getData(this.databaseName, this.query)
-    .then((dbRows)=>{
-      dbRows.forEach((row)=>{
-        this.tableRows.push(this.calculationService.setTableRow(row, this.inputObject));
-      });
-    })
-    .catch(this.errorMessage);
-  }*/
 
   errorMessage(error){
     console.log(JSON.stringify("error: " + error));
