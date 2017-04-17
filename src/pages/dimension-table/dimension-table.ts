@@ -59,19 +59,11 @@ export class DimensionTablePage{
         this.tableRows.push(this.calculationService.setTableRow(row, this.inputObject));
       });
       rows[1].forEach((row)=>{
-        this.descriptionRows.push(row, this.inputObject);
+        this.descriptionRows.push(row);
       });
     })
     .catch(this.errorMessage);
   }
-
-/*  print(){
-    this.pdfService.createTable(this.tableRows)
-    .then((encodedString)=>{
-      this.pdfService.createPdf(encodedString);
-    })
-    .catch((error) => console.log(JSON.stringify(error.message)));
-  }*/
 
   errorMessage(error){
     console.log(JSON.stringify("error: " + error));

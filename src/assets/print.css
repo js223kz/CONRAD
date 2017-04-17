@@ -11,16 +11,21 @@
   th{
     font-weight: bold;
   }
-  .description-wrapper{
-    margin-top: 5%;
-  }
   .description-row{
-    font-size: 2vw;
-    width: 90%;
+    width: 700px;
     margin-left: 3%;
   }
   .description-tube{
-    margin-right: 5px;
+    width: 10px;
+    margin-left: 5px;
+  }
+  .tube-text{
+    width: 650px;
+    margin-left: 5px;
+  }
+  .description-text{
+    width: 700px;
+    margin-left: 3%;
   }
   .column-1{
     min-width: 250px;
@@ -29,26 +34,21 @@
   .column-2{
     min-width: 130px;
     max-width: 130px;
-
   }
   .column-3{
     min-width: 80px;
     max-width: 80px;
-
   }
   .column-4{
     min-width: 80px;
     max-width: 80px;
-
   }
   .column-5{
     min-width: 80px;
     max-width: 80px;
-
   }
   .column-6{
     min-width: 80px;
     max-width: 80px;
   }
-
 }

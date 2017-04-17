@@ -23,33 +23,7 @@
     <ion-row class="table-row">
       <ion-col class="column-1">
         <div class="tubes" *ngFor="let bit of row[0]">
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == '0' || bit == 'Z'"
-                style="width:4px; height:3px; background: url('assets/img/black.png');">
-          </div>
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == '1'"
-                style="width:4px; height:9px; background: url('assets/img/red.png');">
-          </div>
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == 'W'"
-                style="width:4px; height:9px; background: url('assets/img/blue.png');">
-          </div>
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == 'F'"
-                style="width:4px; height:9px; background: url('assets/img/grey.png');">
-          </div>
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == 'G'"
-                style="width:4px; height:9px; background: url('assets/img/lightgrey.png');">
-          </div>
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == 'C'"
-                style="width:4px; height:9px; background: url('assets/img/red_black.png');">
-          </div>
-          <div  class="tube_{{bit}}"
-                *ngIf="bit == 'X'"
-                style="width:4px; height:9px; background: url('assets/img/lightgrey_black.png');">
+          <div  class="tube_{{bit}}">
           </div>
         </div>
       </ion-col>

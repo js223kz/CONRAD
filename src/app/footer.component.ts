@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ContactPage } from '../pages/contact/contact';
-import { ContactService } from '../pages/contact/providers/contact.service';
+import { ContactService } from '../shared/providers/contact.service';
 import { ConstantService } from '../shared/providers/constant.service';
 
 

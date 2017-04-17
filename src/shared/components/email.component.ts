@@ -29,15 +29,13 @@ export class EmailComponent {
 
   sendEmail(){
     console.log("send email");
-    let tablePage = document.getElementById('table-wrapper').innerHTML;
     this.platform.ready().then(() => {
-
       (<any>window).cordova.plugins.email.isAvailable((isAvailable, withScheme)=>{
             if(isAvailable){
               (<any>window).cordova.plugins.email.open({
-                to:          [""],
-                subject:   " Tabell från Conrad Värme",
-                body:       tablePage,
+                to:          ["johanna@bythebeach.se"],
+                subject:   "",
+                body:       "",
                 isHtml:    true,
               },((res)=>{
                   alert(res ? 'E-post skickat' : 'E-post avbruten');
