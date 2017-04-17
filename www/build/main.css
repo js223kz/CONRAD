@@ -31,64 +31,6 @@
   font-size: 4vw;
 }
 
-.footer-center-col {
-  text-align: center;
-}
-
-.dim-table-row-header {
-  font-weight: bold;
-}
-
-.dim-table-row {
-  border-top: 1px solid #c6c6c6;
-}
-
-.description-table {
-  width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
-  font-size: 2vw;
-}
-
-.column-1 {
-  max-width: 50%;
-  min-width: 50%;
-  margin-left: 3%;
-}
-
-.column-2 {
-  max-width: 16%;
-  min-width: 16%;
-}
-
-.column-3 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.column-4 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.column-5 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.column-6 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.tubes {
-  float: left;
-  margin-left: 1px;
-  margin-top: 7px;
-  height: auto;
-  width: auto;
-}
-
 /*!
   Ionicons, v3.0.0-alpha.3
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -24622,6 +24564,107 @@ sub {
   font-size: 25px !important;
 }
 
+@media print {
+  #table-wrapper {
+    max-width: 95%;
+    margin-right: 5%;
+    font-size: 1.7vw;
+  }
+  .table-row {
+    border-bottom: 1px solid #c6c6c6;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  .description-wrapper {
+    margin-top: 5%;
+  }
+  .description-row {
+    font-size: 2vw;
+    width: 90%;
+    margin-left: 3%;
+  }
+  .description-tube {
+    margin-right: 5px;
+  }
+  .column-1 {
+    max-width: 50%;
+    min-width: 50%;
+    padding: 0px;
+  }
+  .column-2 {
+    max-width: 16%;
+    min-width: 16%;
+    padding: 0px;
+  }
+  .column-3 {
+    max-width: 9%;
+    min-width: 9%;
+    padding: 0px;
+  }
+  .column-4 {
+    max-width: 9%;
+    min-width: 9%;
+    padding: 0px;
+  }
+  .column-5 {
+    max-width: 9%;
+    min-width: 9%;
+    padding: 0px;
+  }
+  .column-6 {
+    max-width: 9%;
+    min-width: 9%;
+    padding: 0px;
+  }
+  .tubes {
+    float: left;
+    margin-left: 1px;
+    height: auto;
+    width: auto;
+    padding: 0px;
+  }
+  .tube_0 {
+    width: 4px;
+    height: 3px;
+    background-image: url("/assets/images/black.png");
+  }
+  .tube_Z {
+    width: 4px;
+    height: 3px;
+    background: url("/assets/images/black.png");
+  }
+  .tube_1 {
+    width: 4px;
+    height: 9px;
+    background: url("/assets/images/red.png");
+  }
+  .tube_W {
+    width: 4px;
+    height: 9px;
+    background: url("/assets/images/blue.png");
+  }
+  .tube_F {
+    width: 4px;
+    height: 9px;
+    background: url("/assets/images/grey.png");
+  }
+  .tube_G {
+    width: 4px;
+    height: 9px;
+    background: url("/assets/images/lightgrey.png");
+  }
+  .tube_C {
+    width: 4px;
+    height: 9px;
+    background: url("/assets/images/red_black.png");
+  }
+  .tube_X {
+    width: 4px;
+    height: 9px;
+    background: url("/assets/images/lightgrey_black.png");
+  }
+}
+
 #contact-container {
   width: 80%;
   min-height: 30%;
@@ -24654,65 +24697,7 @@ sub {
   border-radius: 5px;
 }
 
-.footer-center-col {
-  text-align: center;
-}
-
-.dim-table-row-header {
-  font-weight: bold;
-}
-
-.dim-table-row {
-  border-top: 1px solid #c6c6c6;
-}
-
-.description-table {
-  width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
-  font-size: 2vw;
-}
-
-.column-1 {
-  max-width: 50%;
-  min-width: 50%;
-  margin-left: 3%;
-}
-
-.column-2 {
-  max-width: 16%;
-  min-width: 16%;
-}
-
-.column-3 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.column-4 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.column-5 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.column-6 {
-  max-width: 9%;
-  min-width: 9%;
-}
-
-.tubes {
-  float: left;
-  margin-left: 1px;
-  margin-top: 7px;
-  height: auto;
-  width: auto;
-}
-
-.table-wrapper {
+#table-wrapper {
   max-width: 95%;
   margin-right: 5%;
   font-size: 1.7vw;
@@ -24785,47 +24770,47 @@ sub {
 .tube_0 {
   width: 4px;
   height: 3px;
-  background-image: url("/assets/images/black.png");
+  background-image: url("/assets/img/black.png");
 }
 
 .tube_Z {
   width: 4px;
   height: 3px;
-  background-image: url("/assets/images/black.png");
+  background-image: url("/assets/img/black.png");
 }
 
 .tube_1 {
   width: 4px;
   height: 9px;
-  background-image: url("/assets/images/red.png");
+  background-image: url("/assets/img/red.png");
 }
 
 .tube_W {
   width: 4px;
   height: 9px;
-  background: url("/assets/images/blue.png");
+  background: url("/assets/img/blue.png");
 }
 
 .tube_F {
   width: 4px;
   height: 9px;
-  background: url("/assets/images/grey.png");
+  background: url("/assets/img/grey.png");
 }
 
 .tube_G {
   width: 4px;
   height: 9px;
-  background: url("/assets/images/lightgrey.png");
+  background: url("/assets/img/lightgrey.png");
 }
 
 .tube_C {
   width: 4px;
   height: 9px;
-  background: url("/assets/images/red_black.png");
+  background: url("/assets/img/red_black.png");
 }
 
 .tube_X {
   width: 4px;
   height: 9px;
-  background: url("/assets/images/lightgrey_black.png");
+  background: url("/assets/img/lightgrey_black.png");
 }

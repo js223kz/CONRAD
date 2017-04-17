@@ -2,12 +2,13 @@ import { Component} from '@angular/core';
 import { NavParams} from 'ionic-angular';
 import { DataService } from '../../shared/providers/data.service';
 import { CalculationService } from '../../shared/providers/calculation.service';
+import { PdfService } from '../../shared/providers/pdf.service';
 
 
 @Component({
   selector: 'page-dimension-table',
   templateUrl: 'dimension-table.html',
-  providers: [CalculationService]
+  providers: [CalculationService, PdfService]
 })
 export class DimensionTablePage{
   pageTitle: string;
@@ -23,7 +24,8 @@ export class DimensionTablePage{
 
   constructor(private navParams: NavParams,
               private dataService: DataService,
-              private calculationService: CalculationService) {
+              private calculationService: CalculationService,
+              private pdfService: PdfService) {
 
     this.inputObject = navParams.get('inputObject');
     this.pageTitle = this.inputObject["system"].displayName;
@@ -63,7 +65,16 @@ export class DimensionTablePage{
     .catch(this.errorMessage);
   }
 
+/*  print(){
+    this.pdfService.createTable(this.tableRows)
+    .then((encodedString)=>{
+      this.pdfService.createPdf(encodedString);
+    })
+    .catch((error) => console.log(JSON.stringify(error.message)));
+  }*/
+
   errorMessage(error){
     console.log(JSON.stringify("error: " + error));
   }
+
 }

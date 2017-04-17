@@ -19,6 +19,17 @@
   <allow-navigation href="http://192.168.1.11:8100"/>
   <allow-navigation href="http://10.80.80.126:8100"/>
   <allow-navigation href="http://192.168.3.250:8100"/>
+  <allow-navigation href="http://10.80.81.140:8100"/>
+  <allow-navigation href="http://192.168.3.20:8100"/>
+  <allow-navigation href="http://10.80.80.162:8100"/>
+  <allow-navigation href="http://10.80.82.207:8100"/>
+  <allow-navigation href="http://192.168.3.23:8100"/>
+  <allow-navigation href="http://192.168.3.25:8100"/>
+  <allow-navigation href="http://10.80.80.209:8100"/>
+  <allow-navigation href="http://192.168.3.94:8100"/>
+  <allow-navigation href="http://10.3.222.138:8100"/>
+  <allow-navigation href="http://192.168.3.239:8100"/>
+  <allow-navigation href="http://10.80.83.16:8100"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
@@ -73,4 +84,6 @@
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
   <plugin name="cordova-sqlite-ext" spec="~0.10.4"/>
   <plugin name="cordova-plugin-email" spec="~1.2.6"/>
+  <plugin name="cordova-pdf-generator" spec="~1.0.13"/>
+  <plugin name="cordova-plugin-print-pdf" spec="~4.0.0"/>
 </widget>

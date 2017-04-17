@@ -53,7 +53,7 @@ export class FormComponent implements OnInit{
   ngOnInit() {
     this.form = this.formrowService.toFormGroup(this.formRows);
   }
-//
+
   onSubmit(formValues: any){
     this.formSubmitted.emit(formValues);
   }

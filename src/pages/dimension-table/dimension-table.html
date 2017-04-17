@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/print.css" media="print">
 
 <ion-content>
   <con-header></con-header>
@@ -7,14 +8,7 @@
 
 <ion-footer class="bar bar-footer">
   <ion-toolbar>
-    <print-component></print-component>
-
-    <ion-title id="footer-title">VVS Agenturer AB</ion-title>
-
-    <ion-buttons end>
-      <button class="action-btn email" ion-button icon-only (click)="showContactPage()">
-        <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
-      </button>
-    </ion-buttons>
+    <print-component [tableRows]="tableRows" [descriptionRows]="descriptionRows"></print-component>
+    <ion-title class="footer-title">VVS Agenturer AB</ion-title>
   </ion-toolbar>
 </ion-footer>

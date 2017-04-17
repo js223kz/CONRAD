@@ -9,8 +9,6 @@ import { Component, Input } from '@angular/core';
 export class GridComponent {
   @Input() tableRows;
   @Input() descriptionRows;
-  constructor() {
-
-  }
+  constructor() {}
 
 }
