@@ -46,6 +46,7 @@ export class DimensionFormPage{
       }
 
       this.formRows = formControls;
+      console.log("FORMROWS: " + JSON.stringify(this.formRows));
       this.dataLoaded = true;
     })
     .catch(this.errorMessage);
