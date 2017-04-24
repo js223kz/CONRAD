@@ -5,14 +5,14 @@ import { SQLite } from 'ionic-native';
 export class DataService {
 
   private db: any;
+
   constructor() {
     this.db = new SQLite();
-
   }
 
   public getData(database: String, query: String): any{
     return new Promise((resolve, reject)=>{
-      let data: any[] = [];
+      let rows: any[] = [];
       this.db.openDatabase({
         name: database,
         location:"default",
@@ -21,17 +21,17 @@ export class DataService {
           this.db.executeSql(query, {}).then((res) => {
             if(res.rows.length > 0) {
               for (let i = 0; i < res.rows.length; i++) {
-                data.push(res.rows.item(i));
+                rows.push(res.rows.item(i));
               }
-              resolve(data);
+              resolve(rows);
             } else {
-              reject("Empty database");
+              reject("Databasen är tom: Prova att starta om appen.");
             }
           }, (err) => {
-            reject('Unable to execute sql');
+            reject('Får ingen kontakt med databasen. Prova att starta om appen.');
           });
         }, (err) => {
-          reject('Unable to open database');
+          reject('Kan inte öppna databasen. Prova att starta om appen.');
       });
     });
   }

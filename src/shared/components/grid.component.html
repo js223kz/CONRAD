@@ -47,8 +47,10 @@
 
   <div class="description-wrapper" *ngFor="let descRow of descriptionRows">
     <ion-row class="description-row">
-      <div class="tube_{{descRow.tube}}"></div>
-        {{descRow.desc}}
+        <div class="tube_{{descRow.tube}}"></div>
+        <div class="description-text">
+          {{descRow.desc}}
+        </div>
     </ion-row>
   </div>
 </div>

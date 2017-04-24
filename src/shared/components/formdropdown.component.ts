@@ -5,8 +5,8 @@ import { ConstantService } from '../providers/constant.service';
 @Component({
   selector: 'form-dropdown',
   template: `<div id="system-dropdown-wrapper">
-              <ion-select (ionChange)=onChange($event) required>
-                <ion-option  class="dropdown-select" *ngFor="let i of heatSystems"
+              <ion-select id="dropdown-select" (ionChange)=onChange($event) required>
+                <ion-option text-wrap *ngFor="let i of heatSystems"
                   [value]="i"
                   [selected]="i.dbName == this.defaultSelected">
                   {{i.displayName}}
@@ -15,17 +15,12 @@ import { ConstantService } from '../providers/constant.service';
             </div>`,
             styles: [`
                       #system-dropdown-wrapper{
-                        overflow: hidden;
                         border-top: 1px solid #ccc;
                         border-bottom: 1px solid #ccc;
                         margin-bottom: 20px;
                       }
-                      .dropdown-select{
-                        width: 100%;
-                      }
                       #dropdown-select{
-                        float: left;
-                        width: 50%;
+                        max-width: 100% !important;
                       }`
                     ]
 

@@ -19,6 +19,7 @@ export class DimensionFormPage{
   dataLoaded: boolean = false;
   query: string = 'SELECT * FROM input_fields';
   selectedSystem: Object;
+  error: any = "";
 
   constructor(private platform: Platform,
     private navCtrl: NavController,
@@ -26,6 +27,7 @@ export class DimensionFormPage{
     private constantService: ConstantService) {
 
     this.selectedSystem = constantService.DEFAULTSYSTEM;
+    this.error = "";
 
     platform.ready().then(() => {
       this.changeForm('Proline.sqlite');
@@ -46,14 +48,15 @@ export class DimensionFormPage{
       }
 
       this.formRows = formControls;
-      console.log("FORMROWS: " + JSON.stringify(this.formRows));
       this.dataLoaded = true;
     })
-    .catch(this.errorMessage);
+    .catch((error)=>{
+      this.errorMessage(error);
+    });
   }
 
   errorMessage(error){
-    console.log(JSON.stringify("error" + error));
+    this.error = error;
   }
 
   onFormSubmission(formValues: any){

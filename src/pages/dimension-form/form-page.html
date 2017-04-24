@@ -2,10 +2,16 @@
   <con-header></con-header>
     <ion-toolbar class="page-title-wrapper">
         <ion-label class="ion-title">Dimensioner</ion-label>
+
         <form-dropdown (selectedHeatSystem)="onSystemDropdownChange($event)">
         </form-dropdown>
+        <ion-row *ngIf="error" class="error">
+          <ion-col text-wrap>
+            <ion-label> {{error}} </ion-label>
+          </ion-col>
+        </ion-row>
     </ion-toolbar>
-    <div *ngIf="dataLoaded" class="form-wrapper">
+    <div *ngIf="dataLoaded">
         <dimension-form [formRows]="formRows" (formSubmitted) ="onFormSubmission($event)"></dimension-form>
     </div>
 </ion-content>

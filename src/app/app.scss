@@ -1,3 +1,5 @@
+$toolbar-ios-title-font-size: 1rem !important;
+
 .page-title-wrapper{
   width: 100%;
   height: auto;
@@ -7,7 +9,6 @@
 .page-title{
   font-weight: 500;
 }
-
 .action-btn{
   font-size: 23px;
   color: #7F7F7F;
@@ -15,103 +16,12 @@
 .email{
   font-size: 25px !important;
 }
-@media print{
-  #table-wrapper{
-      max-width: 95%;
-      margin-right: 5%;
-      font-size: 1.7vw;
-    }
-    .table-row{
-      border-bottom: 1px solid #c6c6c6;
-      padding-top: 2%;
-      padding-bottom: 2%;
-    }
-    .description-wrapper{
-      margin-top: 5%;
-    }
-    .description-row{
-      font-size: 2vw;
-      width: 90%;
-      margin-left: 3%;
-    }
-    .description-tube{
-      margin-right: 5px;
-    }
-    .column-1{
-      max-width: 50%;
-      min-width: 50%;
-      padding: 0px;
-    }
-    .column-2{
-      max-width: 16%;
-      min-width: 16%;
-      padding: 0px;
-    }
-    .column-3{
-      max-width: 9%;
-      min-width: 9%;
-      padding: 0px;
-    }
-    .column-4{
-      max-width: 9%;
-      min-width: 9%;
-      padding: 0px;
-    }
-    .column-5{
-      max-width: 9%;
-      min-width: 9%;
-      padding: 0px;
-    }
-    .column-6{
-      max-width: 9%;
-      min-width: 9%;
-      padding: 0px;
-    }
-    .tubes{
-      float: left;
-      margin-left:1px;
-      height: auto;
-      width: auto;
-      padding: 0px;
-    }
-    .tube_0{
-      width: 4px;
-      height: 3px;
-      background-image: url('/assets/images/black.png');
-    }
-    .tube_Z{
-      width: 4px;
-      height: 3px;
-      background: url('/assets/images/black.png');
-    }
-    .tube_1{
-      width: 4px;
-      height: 9px;
-      background: url('/assets/images/red.png');
-    }
-    .tube_W{
-      width: 4px;
-      height: 9px;
-      background: url('/assets/images/blue.png');
-    }
-    .tube_F{
-      width: 4px;
-      height: 9px;
-      background: url('/assets/images/grey.png');
-    }
-    .tube_G{
-      width: 4px;
-      height: 9px;
-      background: url('/assets/images/lightgrey.png');
-    }
-    .tube_C{
-      width: 4px;
-      height: 9px;
-      background: url('/assets/images/red_black.png');
-    }
-    .tube_X{
-      width: 4px;
-      height: 9px;
-      background: url('/assets/images/lightgrey_black.png');
-    }
+.error{
+  background-color: #E82F2D;
+  height: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  border: 1px solid red;
+  border-radius: 5px;
 }

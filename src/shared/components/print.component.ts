@@ -175,8 +175,8 @@ export class PrintComponent {
 
 
     (<any>window).cordova.plugins.printer.print(styleCode, 'conrad.html',
-    (res)=> {
-        alert(res ? 'Utskriften klar' : 'Utskriften avbruten');
-      });
+      (res)=> {
+
+    });
   }
 }
