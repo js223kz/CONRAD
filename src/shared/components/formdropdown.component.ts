@@ -1,5 +1,4 @@
 import { EventEmitter, Output, Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
 import { ConstantService } from '../providers/constant.service';
 
 @Component({
@@ -32,7 +31,7 @@ export class FormDropDown {
   defaultSelected: Object;
   @Output() selectedHeatSystem = new EventEmitter<Object>();
 
-  constructor(platform: Platform, public constantService: ConstantService) {
+  constructor(constantService: ConstantService) {
     this.heatSystems = constantService.HEATSYSTEMS;
     this.defaultSelected = this.heatSystems[0]["dbName"];
   }

@@ -2,18 +2,18 @@ import { Component, Input }from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormRowModel } from '../models/formrow.model';
 
-
 @Component({
   selector: 'form-row',
-  templateUrl: 'formrow.component.html'
+  templateUrl: 'formrow.component.html',
+  styleUrls:  ['/src/shared/components/formrow.component.scss'],
 })
 
 export class FormRowComponent{
   @Input() row: FormRowModel<any>;
   @Input() form: FormGroup;
 
-  constructor() {
-  }
+  constructor() {}
+
   get isValid() {
     return this.form.controls[this.row.fieldName].valid;
   }

@@ -1,3 +1,4 @@
+/*global styling*/
 $toolbar-ios-title-font-size: 1rem !important;
 
 .page-title-wrapper{
@@ -19,9 +20,10 @@ $toolbar-ios-title-font-size: 1rem !important;
 .error{
   background-color: #E82F2D;
   height: auto;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
+  width: 100%;
   border: 1px solid red;
   border-radius: 5px;
+}
+.error-label{
+  margin-left: 5%;
 }

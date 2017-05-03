@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen, Keyboard } from 'ionic-native';
-import { DbCloneService } from '../pages/dimension-form/providers/dbclone.service';
+import { DbCloneService } from '../shared/providers/dbclone.service';
 import { ConstantService } from '../shared/providers/constant.service';
 import { DimensionFormPage } from '../pages/dimension-form/form-page';
 
@@ -24,12 +24,11 @@ export class MyApp {
         Keyboard.disableScroll(false);
       }
 
-      dbCloneService.cloneDatabases(constantService.DATABASES);
+      dbCloneService.cloneDatabases(constantService.DATABASES),
 
       StatusBar.overlaysWebView(false);
       StatusBar.styleDefault();
       Splashscreen.hide();
-
   });
   }
 }

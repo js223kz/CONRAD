@@ -2,17 +2,17 @@
   <ion-row [ngSwitch]="row.controlType">
 
     <ion-col width-33>
-      <ion-label style="margin-left:2%;">{{row.name}}</ion-label>
+      <ion-label class="form-text">{{row.name}}</ion-label>
     </ion-col>
 
     <ion-col width-33>
-      <input *ngSwitchCase="'text'" [formControlName]="row.fieldName"
+      <input class="form-input" *ngSwitchCase="'text'" [formControlName]="row.fieldName"
                 [type]="row.type"
                 [id]="row.fieldName"
                 [value]="row.value"
                 style="width:70px;">
 
-      <select [id]="row.fieldName" *ngSwitchCase="'dropdown'"
+      <select class="form-input" [id]="row.fieldName" *ngSwitchCase="'dropdown'"
                 [formControlName]="row.fieldName">
         <option *ngFor="let opt of row.options"
                 [value]="opt"
@@ -20,29 +20,30 @@
         </option>
       </select>
     </ion-col>
+
     <ion-col width-33>
-      <ion-label [innerHTML]="row.symbol"></ion-label>
+      <ion-label class="form-text" [innerHTML]="row.symbol"></ion-label>
     </ion-col>
   </ion-row>
 
   <ion-row class="error" *ngIf="form.controls[row.fieldName].errors?.required &&
         form.controls[row.fieldName].dirty">
     <ion-col>
-      <ion-label style="margin-left: 5%"> {{row.name}} måste anges </ion-label>
+      <ion-label class="error-label"> {{row.name}} måste anges </ion-label>
     </ion-col>
   </ion-row>
 
   <ion-row class="error" *ngIf="form.controls[row.fieldName].errors?.min &&
         form.controls[row.fieldName].dirty">
     <ion-col>
-      <ion-label style="margin-left: 5%"> Min {{row.minValue}}</ion-label>
+      <ion-label class="error-label"> Min {{row.minValue}}</ion-label>
     </ion-col>
   </ion-row>
 
   <ion-row class="error" *ngIf="form.controls[row.fieldName].errors?.max &&
         form.controls[row.fieldName].dirty">
     <ion-col>
-      <ion-label style="margin-left: 5%"> Max {{row.maxValue}}</ion-label>
+      <ion-label class="error-label"> Max {{row.maxValue}}</ion-label>
     </ion-col>
   </ion-row>
 

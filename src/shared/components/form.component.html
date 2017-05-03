@@ -1,0 +1,23 @@
+<div class="form-wrapper">
+  <form [formGroup]="form"
+        (keydown)="keyDownFunction($event)"
+        (ngSubmit)="onSubmit(form.value)"
+        novalidate>
+    <div *ngFor="let row of formRows"
+          class="item-borderless">
+      <form-row minLen="row.minValue"
+                maxLen="row.maxValue"
+                [row]="row"
+                [form]="form">
+      </form-row>
+    </div>
+
+    <div>
+      <button class="calc-button" ion-button type="submit"
+              [disabled]="!form.valid">
+              Beräkna
+      </button>
+    </div>
+    
+  </form>
+</div>

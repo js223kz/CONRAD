@@ -1,4 +1,3 @@
-
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,9 +5,10 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'grid.component.html',
   styleUrls:  ['/src/shared/components/grid.component.scss'],
 })
+
 export class GridComponent {
   @Input() tableRows;
   @Input() descriptionRows;
-  constructor() {}
 
+  constructor() {}
 }

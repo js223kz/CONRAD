@@ -24536,6 +24536,7 @@ sub {
   }
 }
 
+/*global styling*/
 .page-title-wrapper {
   width: 100%;
   height: auto;
@@ -24559,11 +24560,13 @@ sub {
 .error {
   background-color: #E82F2D;
   height: auto;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
+  width: 100%;
   border: 1px solid red;
   border-radius: 5px;
+}
+
+.error-label {
+  margin-left: 5%;
 }
 
 #contact-container {
@@ -24588,6 +24591,34 @@ sub {
 
 .contact-text {
   font-size: 4vw;
+}
+
+.platform-ipad .form-wrapper {
+  margin-top: 10%;
+}
+
+.form-wrapper {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 10%;
+}
+
+.calc-button .platform-ipad {
+  font-size: 2.5vw;
+}
+
+.calc-button {
+  width: 100%;
+  background-color: #7F7F7F !important;
+}
+
+.form-text {
+  margin-left: 2%;
+}
+
+.form-input {
+  margin-top: 10px;
 }
 
 #table-wrapper {
@@ -24706,4 +24737,37 @@ sub {
   width: 4px;
   height: 9px;
   background: url("/assets/img/lightgrey_black.png");
+}
+
+.infobox-dropdown {
+  width: 100%;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+
+.infotext-wrapper {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10%;
+  background-color: #f7f7f7;
+  height: auto;
+  border-radius: 5px;
+}
+
+.arrow-down-btn {
+  font-size: 18px;
+}
+
+.info-text {
+  padding: 5%;
+}
+
+.info-text-row {
+  font-size: 3vw;
+  margin-top: -15px;
+}
+
+.ion-title {
+  margin-left: 10px;
+  font-weight: 600;
 }

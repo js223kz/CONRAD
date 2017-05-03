@@ -1,4 +1,3 @@
-
 import { Component} from '@angular/core';
 import { Platform } from 'ionic-angular';
 
@@ -7,8 +6,7 @@ import { Platform } from 'ionic-angular';
   template: `<ion-buttons end>
                 <button class="action-btn email" ion-button icon-only
                 (click)="sendEmail()">
-                  <ion-icon ios="ios-mail" md="md-mail">
-                  </ion-icon>
+                  <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
                 </button>
               </ion-buttons>`,
               styles: [`
@@ -23,22 +21,19 @@ import { Platform } from 'ionic-angular';
 })
 export class EmailComponent {
 
-  constructor(public platform: Platform) {
-
-  }
+  constructor(public platform: Platform) {}
 
   sendEmail(){
-    console.log("send email");
     this.platform.ready().then(() => {
       (<any>window).cordova.plugins.email.isAvailable((isAvailable, withScheme)=>{
             if(isAvailable){
               (<any>window).cordova.plugins.email.open({
-                to:          ["johanna@bythebeach.se"],
+                to: ["kontakt@conradvarme.se"],
                 subject:   "",
                 body:       "",
                 isHtml:    true,
               },((res)=>{
-                  alert(res ? 'E-post skickat' : 'E-post avbruten');
+                //email is sent
               }));
 
             }else{

@@ -1,14 +1,26 @@
-<link rel="stylesheet" href="assets/print.css" media="print">
-
 <ion-content>
+
   <con-header></con-header>
+
   <infobox [inputObject]="inputObject"></infobox>
-  <dimension-grid [tableRows]="tableRows" [descriptionRows]="descriptionRows"></dimension-grid>
+
+  <ion-row *ngIf="error" class="error">
+    <ion-col text-wrap>
+      <ion-label> {{error}} </ion-label>
+    </ion-col>
+  </ion-row>
+  
+  <dimension-grid [tableRows]="tableRows"
+                  [descriptionRows]="descriptionRows">
+  </dimension-grid>
+
 </ion-content>
 
 <ion-footer class="bar bar-footer">
   <ion-toolbar>
-    <print-component [tableRows]="tableRows" [descriptionRows]="descriptionRows"></print-component>
+    <print-component  [tableRows]="tableRows"
+                      [descriptionRows]="descriptionRows">
+    </print-component>
     <ion-title class="footer-title">VVS Agenturer AB</ion-title>
   </ion-toolbar>
 </ion-footer>

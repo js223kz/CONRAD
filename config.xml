@@ -33,6 +33,7 @@
   <allow-navigation href="http://10.3.134.166:8100"/>
   <allow-navigation href="http://192.168.3.22:8100"/>
   <allow-navigation href="http://192.168.100.73:8100"/>
+  <allow-navigation href="http://192.168.100.148:8100"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>
@@ -57,16 +58,16 @@
     <icon height="29" src="resources/ios/icon/icon-small.png" width="29"/>
     <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58"/>
     <icon height="87" src="resources/ios/icon/icon-small@3x.png" width="87"/>
-    <splash src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
-    <splash src="resources/ios/splash/Default-667h.png" width="750" height="1334"/>
-    <splash src="resources/ios/splash/Default-736h.png" width="1242" height="2208"/>
-    <splash src="resources/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
-    <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-    <splash src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
-    <splash src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-    <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
-    <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
-    <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
+    <splash height="1136" src="resources/ios/splash/Default-568h@2x~iphone.png" width="640"/>
+    <splash height="1334" src="resources/ios/splash/Default-667h.png" width="750"/>
+    <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242"/>
+    <splash height="1242" src="resources/ios/splash/Default-Landscape-736h.png" width="2208"/>
+    <splash height="1536" src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048"/>
+    <splash height="768" src="resources/ios/splash/Default-Landscape~ipad.png" width="1024"/>
+    <splash height="2048" src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536"/>
+    <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768"/>
+    <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640"/>
+    <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320"/>
   </platform>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
@@ -89,4 +90,5 @@
   <plugin name="cordova-plugin-email" spec="~1.2.6"/>
   <plugin name="cordova-pdf-generator" spec="~1.0.13"/>
   <plugin name="cordova-plugin-print-pdf" spec="~4.0.0"/>
+  <plugin name="cordova-plugin-printer" spec="~0.7.3"/>
 </widget>

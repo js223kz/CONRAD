@@ -14,11 +14,7 @@ import { FormRowComponent } from '../shared/components/formrow.component';
 import { FormDropDown } from '../shared/components/formdropdown.component';
 import { GridComponent } from '../shared/components/grid.component';
 import { InfoboxComponent } from '../shared/components/infobox.component';
-import { PdfService } from '../shared/providers/pdf.service';
 import { PrintComponent } from '../shared/components/print.component';
-
-
-
 
 @NgModule({
   declarations: [
@@ -39,8 +35,8 @@ import { PrintComponent } from '../shared/components/print.component';
     IonicModule.forRoot(MyApp),
     FormsModule,
     ReactiveFormsModule,
-    CustomFormsModule
-  ],
+    CustomFormsModule,
+    ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -50,6 +46,6 @@ import { PrintComponent } from '../shared/components/print.component';
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataService  ]
+    DataService]
 })
 export class AppModule {}

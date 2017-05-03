@@ -1,0 +1,55 @@
+<div>
+<ion-toolbar class="infobox-dropdown">
+<ion-label class="ion-title" start>
+  {{inputObject["system"].displayName}}
+</ion-label>
+  <ion-buttons end>
+    <button class="action-btn arrow-down-btn" ion-button icon-only
+            (click)="toggleInfoBox()">
+      <ion-icon ios="ios-arrow-dropdown-circle"
+                md="md-arrow-dropdown-circle">
+      </ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+</div>
+
+<div *ngIf="infoboxVisible" class="infotext-wrapper">
+  <div class="info-text">
+  <ion-row class="info-text-row">
+    <ion-label>System: </ion-label>
+    <ion-label>{{inputObject["system"].displayName}}</ion-label>
+  </ion-row>
+
+  <ion-row class="info-text-row">
+    <ion-label>Tillopp: </ion-label>
+    <ion-label>{{inputObject["formValues"].flow}}</ion-label>
+  </ion-row>
+
+  <ion-row class="info-text-row">
+    <ion-label>Retur: </ion-label>
+    <ion-label>{{inputObject["formValues"].return}}</ion-label>
+  </ion-row>
+
+  <ion-row class="info-text-row">
+    <ion-label>Rum: </ion-label>
+    <ion-label>{{inputObject["formValues"].room}}</ion-label>
+  </ion-row>
+
+  <ion-row class="info-text-row">
+    <ion-label>Effekt: </ion-label>
+    <ion-label>{{inputObject["formValues"].watt}}</ion-label>
+  </ion-row>
+
+  <ion-row class="info-text-row">
+    <ion-label>Längd: </ion-label>
+    <ion-label>{{inputObject["formValues"].length}}</ion-label>
+  </ion-row>
+
+  <ion-row class="info-text-row">
+    <ion-label>Höjd: </ion-label>
+    <ion-label>{{inputObject["formValues"].height}}</ion-label>
+  </ion-row>
+  
+  </div>
+</div>

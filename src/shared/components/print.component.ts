@@ -27,154 +27,243 @@ export class PrintComponent {
             }
           });
         });
-
       }
 
 
   printTable(){
-    let styleCode = `<html>
-                      <head>
-                        <link rel="stylesheet" href="assets/print.css" media="print">
-                      </head>
+    let htmlCode = `<html>
                       <body>
-                      <table class="table-wrapper">
-                        <tr class="table-row">
+                      <table style="width: 650px;
+                      margin-right: 30px;
+                      margin-left: 50px;
+                      display: table;">
+                        <tr style="border-bottom: 1px solid #c6c6c6;
+                                    padding-top: 2%;
+                                    padding-bottom: 2%;">
                           <td class="column-1">
                           </td>
                           <td class="column-2">
-                            <label>Konvektortyp</label>
+                            <label style="font-weight: bold;">Konvektortyp</label>
                           </td>
                           <td class="column-3">
-                            <label>Längd</label>
+                            <label style="font-weight: bold;">Längd</label>
                           </td>
                           <td class="column-4">
-                            <label>Effekt</label>
+                            <label style="font-weight: bold;">Effekt</label>
                           </td>
                           <td class="column-5">
-                            <label>Längd</label>
+                            <label style="font-weight: bold;">Längd</label>
                           </td>
                           <td class="column-6">
-                            <label>Effekt<label>
+                            <label style="font-weight: bold;">Effekt<label>
                           </td>
                         </tr>
                        `;
 
 
                        this.tableRows.forEach((row)=>{
-                           styleCode += `<tr class="table-row">
-                                          <td class="column-1">`;
+                           htmlCode += `<tr style="border-bottom: 1px solid #c6c6c6;
+                                              padding-top: 2%;
+                                              padding-bottom: 2%;
+                                              display: table-row;">
+                                          <td style="display: table-cell;">`;
 
                           if(row[0]){
                             row[0].forEach((tube)=>{
                               if(tube === '0' || tube === 'Z'){
-                                styleCode +=`<div style="width:5px; height:4px; margin-left:3px; float: left; background: url('assets/img/black.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:4px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/black.png');"></div>`;
                               }
                               if(tube === '1'){
-                                styleCode +=`<div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/red.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:10px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/red.png');"></div>`;
                               }
                               if(tube === 'W'){
-                                styleCode +=`<div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/blue.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:10px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/blue.png');"></div>`;
                               }
                               if(tube === 'F'){
-                                styleCode +=`<div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/grey.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:10px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/grey.png');"></div>`;
                               }
                               if(tube === 'G'){
-                                styleCode +=`<div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/lightgrey.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:10px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/lightgrey.png');"></div>`;
                               }
                               if(tube === 'C'){
-                                styleCode +=`<div style="width:5px; height:10px;  margin-left:3px; float: left; background: url('assets/img/red_black.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:10px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/red_black.png');"></div>`;
                               }
                               if(tube === 'X'){
-                                styleCode +=`<div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/lightgrey_black.png');"></div>`;
+                                htmlCode +=`<div style="width:5px;
+                                                height:10px;
+                                                margin-left:3px;
+                                                float: left;
+                                                background: url('assets/img/lightgrey_black.png');"></div>`;
                               }
                             });
 
                           }
 
-                           styleCode +=`</td>`;
+                           htmlCode +=`</td>`;
 
                            if(row[1] !== null){
-                             styleCode +=`<td class="column-2">
+                             htmlCode +=`<td style="display: table-cell;">
                                              ${row[1]}
                                            </td>`;
                           }else{
-                            styleCode +=`<td class="column-2">
+                            htmlCode +=`<td style="display: table-cell;">
 
                                           </td>`;
                           }
                            if(row[2] !== null){
-                             styleCode +=`<td class="column-3">
+                             htmlCode +=`<td style="display: table-cell;">
                                              ${row[2]}
                                            </td>`;
                            }else{
-                             styleCode +=`<td class="column-3">
+                             htmlCode +=`<td style="display: table-cell;">
                                            </td>`;
                            }
                            if(row[3] !== null){
-                             styleCode +=`<td class="column-4">
+                             htmlCode +=`<td style="display: table-cell;">
                                              ${row[3]}
                                            </td>`;
                           }else{
-                            styleCode +=`<td class="column-4">
+                            htmlCode +=`<td style="display: table-cell;">
                                           </td>`;
                           }
                            if(row[4] !== null){
-                             styleCode +=`<td class="column-5">
+                             htmlCode +=`<td style="display: table-cell;">
                                              ${row[4]}
                                            </td>`;
                           }else{
-                            styleCode +=`<td class="column-6">
+                            htmlCode +=`<td style="display: table-cell;">
                                           </td>`;
                           }
                            if(row[5] !== null){
-                             styleCode +=`<td class="column-6">
+                             htmlCode +=`<td style="display: table-cell;">
                                              ${row[5]}
                                            </td>`;
                            }
 
-                    styleCode +=`</tr>`;
+                    htmlCode +=`</tr>`
                   })
-
+                  htmlCode +=`<div style="margin-top: 40px;">`;
                       this.descriptionRows.forEach((descRow)=>{
-                        console.log(descRow);
-
                           if(descRow.tube){
-                            styleCode +=`<tr>`;
+                            htmlCode +=`<tr style="display: table-row; float: left; width: 650px">`;
                             if(descRow.tube === '0' || descRow.tube === 'Z'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:4px; margin-left:3px; float: left; background: url('assets/img/black.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px; float:left;">
+                                            <div style="width:5px;
+                                                height:4px;
+                                                margin-left:3px;
+                                                background: url('assets/img/black.png');">
+                                            </div>
+                                          </td>`;
                             }
                             if(descRow.tube === '1'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/red.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px; float:left;">
+                                              <div style="width:5px;
+                                                  height:10px;
+                                                  margin-left:3px;
+                                                  background: url('assets/img/red.png');">
+                                              </div>
+                                          </td>`;
                             }
                             if(descRow.tube === 'W'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/blue.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px; float:left;">
+                                            <div style="width:5px;
+                                                  height:10px;
+                                                  margin-left:3px;
+                                                  background: url('assets/img/blue.png');">
+                                            </div>
+                                          </td>`;
                             }
                             if(descRow.tube === 'F'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/grey.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px;
+                                                float:left;">
+                                            <div style="width:5px;
+                                                  height:10px;
+                                                  margin-left:3px;
+                                                  background: url('assets/img/grey.png');">
+                                            </div>
+                                          </td>`;
                             }
                             if(descRow.tube === 'G'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/lightgrey.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px; float:left;">
+                                            <div style="width:5px;
+                                                  height:10px;
+                                                  margin-left:3px;
+                                                  background: url('assets/img/lightgrey.png');">
+                                            </div>
+                                          </td>`;
                             }
                             if(descRow.tube === 'C'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:10px;  margin-left:3px; float: left; background: url('assets/img/red_black.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px; float:left;">
+                                            <div style="width:5px;
+                                                  height:10px;
+                                                  margin-left:3px;
+                                                  background: url('assets/img/red_black.png');">
+                                            </div>
+                                          </td>`;
                             }
                             if(descRow.tube === 'X'){
-                              styleCode +=`<td class="description-tube"><div style="width:5px; height:10px; margin-left:3px; float: left; background: url('assets/img/lightgrey_black.png');"></div></td>`;
+                              htmlCode +=`<td style="display: table-cell;
+                                                width: 150px;
+                                                float:left;">
+                                            <div style="width:5px;
+                                                  height:10px;
+                                                  margin-left:3px;
+                                                  background: url('assets/img/lightgrey_black.png');">
+                                            </div>
+                                          </td>`;
                             }
-                            styleCode +=`<td class="tube-text">${descRow.desc}</td></tr>`
+                            htmlCode +=`<td>
+                                          ${descRow.desc}
+                                        </td>
+                                      </tr>`
                           }else{
-                            styleCode +=`<tr><td class="description-text">${descRow.desc}</td></tr>`
+                            htmlCode +=`<tr style="width: 650px;">
+                                          <td>
+                                            ${descRow.desc}
+                                          </td>
+                                        </tr>`
                           }
 
                       });
 
-                styleCode += `</table>
-                            </body>
-                          </html>`;
+                htmlCode += `</div>
+                          </table>
+                        </body>
+                      </html>`;
 
 
 
-    (<any>window).cordova.plugins.printer.print(styleCode, 'conrad.html',
+    (<any>window).cordova.plugins.printer.print(htmlCode, 'conrad.html',
       (res)=> {
 
     });

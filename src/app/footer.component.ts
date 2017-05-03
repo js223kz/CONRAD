@@ -4,12 +4,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { ContactService } from '../shared/providers/contact.service';
 import { ConstantService } from '../shared/providers/constant.service';
 
-
-
 @Component({
   selector: 'con-footer',
-  template: `
-            <ion-footer id="footer">
+  template: `<ion-footer id="footer">
               <ion-toolbar>
                 <ion-buttons start>
                   <button class="action-btn" *ngIf="showHomeBtn" ion-button icon-only (click)="showContactPage()">
@@ -24,14 +21,13 @@ import { ConstantService } from '../shared/providers/constant.service';
 
                 <ion-buttons end hideWhen="ipad">
                   <a href="tel:{{phoneNumber}}">
-                    <button class="action-btn" ion-button icon-only (click)="makeCall()">
+                    <button class="action-btn" ion-button icon-only>
                       <ion-icon ios="ios-call" md="md-call"></ion-icon>
                     </button>
                   </a>
                 </ion-buttons>
               </ion-toolbar>
-            </ion-footer>
-            `,
+            </ion-footer>`,
             styles: [`
                       #footer {
                         width: 100%;
@@ -62,9 +58,4 @@ export class Footer {
   sendEmail(){
     this.contactService.sendEmail();
   }
-
-  makeCall(){
-    console.log("make call" + this.phoneNumber);
-  }
-
 }
