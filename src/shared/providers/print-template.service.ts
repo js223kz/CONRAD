@@ -5,7 +5,8 @@ export class PrintTemplateService {
 
   constructor() {}
 
-  getTemplate(descriptionRows, tableRows){
+  getTemplate(descriptionRows, tableRows, inputObject){
+
     let htmlCode = `<html>
                       <body>
                       <table style="width: 650px;
@@ -239,6 +240,18 @@ export class PrintTemplateService {
 
                 htmlCode += `
                           </table>
+                          <div style="width: 650px;
+                                      margin-right: 30px;
+                                      margin-left: 50px;
+                                      margin-top: 20px;">
+                            <span>System: ${inputObject.system.displayName}</span>
+                            <span>Tillopp: ${inputObject.formValues.flow}</span>
+                            <span>Retur: ${inputObject.formValues.return}</span>
+                            <span>Rum: ${inputObject.formValues.room}</span>
+                            <span>Effekt: ${inputObject.formValues.watt}</span>
+                            <span>Längd: ${inputObject.formValues.length}</span>
+                            <span>Höjd: ${inputObject.formValues.height}</span>
+                        </div>
                         </body>
                       </html>`;
       return htmlCode;

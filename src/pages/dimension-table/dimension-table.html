@@ -9,7 +9,7 @@
       <ion-label> {{error}} </ion-label>
     </ion-col>
   </ion-row>
-  
+
   <dimension-grid [tableRows]="tableRows"
                   [descriptionRows]="descriptionRows">
   </dimension-grid>
@@ -19,7 +19,8 @@
 <ion-footer class="bar bar-footer">
   <ion-toolbar>
     <print-component  [tableRows]="tableRows"
-                      [descriptionRows]="descriptionRows">
+                      [descriptionRows]="descriptionRows"
+                      [inputObject]="inputObject">
     </print-component>
     <ion-title class="footer-title">VVS Agenturer AB</ion-title>
   </ion-toolbar>

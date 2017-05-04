@@ -17,6 +17,7 @@ import { PrintTemplateService } from '../providers/print-template.service';
 export class PrintComponent {
   @Input() tableRows: any [];
   @Input() descriptionRows: any [];
+  @Input() inputObject: Object;
 
   constructor(public platform: Platform,
               public printTemplateService: PrintTemplateService) {}
@@ -34,7 +35,7 @@ export class PrintComponent {
   }
 
   printTable(){
-    let htmlCode = this.printTemplateService.getTemplate(this.descriptionRows, this.tableRows);
+    let htmlCode = this.printTemplateService.getTemplate(this.descriptionRows, this.tableRows, this.inputObject);
     (<any>window).cordova.plugins.printer.print(htmlCode, 'conrad.html',
       (res)=> {
         //page printed
