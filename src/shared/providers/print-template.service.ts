@@ -15,21 +15,21 @@ export class PrintTemplateService {
                         <tr style="border-bottom: 1px solid #c6c6c6;
                                     padding-top: 2%;
                                     padding-bottom: 2%;">
-                          <td class="column-1">
+                          <td style="width: 200px">
                           </td>
-                          <td class="column-2">
+                          <td style="width: 100px">
                             <label style="font-weight: bold;">Konvektortyp</label>
                           </td>
-                          <td class="column-3">
+                          <td style="width: 50px">
                             <label style="font-weight: bold;">Längd</label>
                           </td>
-                          <td class="column-4">
+                          <td style="width: 50px">
                             <label style="font-weight: bold;">Effekt</label>
                           </td>
-                          <td class="column-5">
+                          <td style="width: 50px">
                             <label style="font-weight: bold;">Längd</label>
                           </td>
-                          <td class="column-6">
+                          <td style="width: 50px">
                             <label style="font-weight: bold;">Effekt<label>
                           </td>
                         </tr>
@@ -139,9 +139,15 @@ export class PrintTemplateService {
                                            </td>`;
                            }
 
-                    htmlCode +=`</tr>`
+                    htmlCode +=`</tr>`;
                   })
-                  htmlCode +=`<div style="margin-top: 40px;">`;
+
+                  htmlCode +=`</table><table style="width: 650px;
+                                      margin-right: 30px;
+                                      margin-left: 50px;
+                                      display: table;
+                                      margin-top: 50px;">
+                              `;
                       descriptionRows.forEach((descRow)=>{
                           if(descRow.tube){
                             htmlCode +=`<tr style="display: table-row; float: left; width: 650px">`;
@@ -231,7 +237,7 @@ export class PrintTemplateService {
 
                       });
 
-                htmlCode += `</div>
+                htmlCode += `
                           </table>
                         </body>
                       </html>`;

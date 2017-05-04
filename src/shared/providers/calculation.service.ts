@@ -132,7 +132,7 @@ export class CalculationService {
 
           values = this.calculateVerticalRows(Obj);
 
-          rowArray[0] = row.tubes;
+          rowArray[0] = Array.from(row.tubes);
           rowArray[1] = row.artno + (inputObject["formValues"].length / 10) + row.artno_pad
           rowArray[2] = values['height'];
           rowArray[3] = values['effect1'];
