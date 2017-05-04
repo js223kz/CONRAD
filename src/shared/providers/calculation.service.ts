@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CalculationService {
 
-  constructor() {
-  }
+  constructor() {}
 
   decimalAdjust(type, value, exp){
       // If the exp is undefined or zero...
@@ -116,71 +115,70 @@ export class CalculationService {
         return values;
       }
 
-    setTableRow(row, inputObject): any{
-        let tubes = [];
-        let n_koef;
-        let wpm_nom;
-        let height_fact = null;
-        let rowArray = [];
-        let values = null;
+  setTableRow(row, inputObject): any{
+      let tubes = [];
+      let n_koef;
+      let wpm_nom;
+      let height_fact = null;
+      let rowArray = [];
+      let values = null;
 
-        if(inputObject["system"].dbName === "Vertical.sqlite"){
-          let Obj = {
-              userInput: inputObject["formValues"],
-              panel_fakt: row.panel_fakt
-          }
-
-          values = this.calculateVerticalRows(Obj);
-
-          rowArray[0] = Array.from(row.tubes);
-          rowArray[1] = row.artno + (inputObject["formValues"].length / 10) + row.artno_pad
-          rowArray[2] = values['height'];
-          rowArray[3] = values['effect1'];
-          rowArray[4] = inputObject["formValues"].height;
-          rowArray[5] = values['effect2'];
-
-        //all other systems but vertical
-        }else{
-          if(row.wpm_nom){
-            wpm_nom = row.wpm_nom.toString();
-            wpm_nom = wpm_nom.replace(',', '.');
-          }
-
-          if(row.n_koef){
-            n_koef = row.n_koef.toString();
-            n_koef = n_koef.replace(',', '.');
-          }else{
-
-            if(inputObject["system"].dbName === "Convectors.sqlite"){
-              n_koef = 1.2;
-              height_fact = 1;
-            }else{
-              n_koef = 1;
-            }
-          }
-
-          if(row.tubes){
-            tubes = Array.from(row.tubes);
-          }
-
-          let Obj = {
-              userInput: inputObject["formValues"],
-              maxLen: 6000,
-              minLen: 400,
-              n_koef: n_koef,
-              wpm_nom: wpm_nom,
-              height_fact: height_fact
-          }
-          values = this.calculateRows(Obj);
-
-          rowArray[0] = tubes;
-          rowArray[1] = row.artno;
-          rowArray[2] = values['length1'];
-          rowArray[3] = values['effect1'];
-          rowArray[4] = inputObject["formValues"].length;
-          rowArray[5] = values['effect2'];
+      if(inputObject["system"].dbName === "Vertical.sqlite"){
+        let Obj = {
+            userInput: inputObject["formValues"],
+            panel_fakt: row.panel_fakt
         }
 
-        return rowArray;
+        values = this.calculateVerticalRows(Obj);
+
+        rowArray[0] = Array.from(row.tubes);
+        rowArray[1] = row.artno + (inputObject["formValues"].length / 10) + row.artno_pad
+        rowArray[2] = values['height'];
+        rowArray[3] = values['effect1'];
+        rowArray[4] = inputObject["formValues"].height;
+        rowArray[5] = values['effect2'];
+
+      //all other systems but vertical
+      }else{
+        if(row.wpm_nom){
+          wpm_nom = row.wpm_nom.toString();
+          wpm_nom = wpm_nom.replace(',', '.');
+        }
+
+        if(row.n_koef){
+          n_koef = row.n_koef.toString();
+          n_koef = n_koef.replace(',', '.');
+        }else{
+
+          if(inputObject["system"].dbName === "Convectors.sqlite"){
+            n_koef = 1.2;
+            height_fact = 1;
+          }else{
+            n_koef = 1;
+          }
+        }
+
+        if(row.tubes){
+          tubes = Array.from(row.tubes);
+        }
+
+        let Obj = {
+            userInput: inputObject["formValues"],
+            maxLen: 6000,
+            minLen: 400,
+            n_koef: n_koef,
+            wpm_nom: wpm_nom,
+            height_fact: height_fact
+        }
+        values = this.calculateRows(Obj);
+
+        rowArray[0] = tubes;
+        rowArray[1] = row.artno;
+        rowArray[2] = values['length1'];
+        rowArray[3] = values['effect1'];
+        rowArray[4] = inputObject["formValues"].length;
+        rowArray[5] = values['effect2'];
       }
+    return rowArray;
+  }
 }

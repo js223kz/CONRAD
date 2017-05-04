@@ -34,8 +34,8 @@ export class ConstantService {
         displayName: "Proline"
     };
 
-    this.EMAILADDRESS = "johanna@bythebeach.se";
+    this.EMAILADDRESS = "kontakt@conradvarme.se";
 
-    this.PHONENUMBER = "+46705266130";
+    this.PHONENUMBER = "+46406803250";
   }
 }

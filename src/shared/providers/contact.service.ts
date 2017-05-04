@@ -5,17 +5,18 @@ import { ConstantService } from './constant.service';
 
 @Injectable()
 export class ContactService {
-
-  constructor(public platForm: Platform, public constantService: ConstantService) {
+  emailAddress: string;
+  constructor(public platForm: Platform,
+              public constantService: ConstantService) {
+    this.emailAddress = constantService.EMAILADDRESS;
   }
 
   sendEmail(){
-    console.log("send email");
     this.platForm.ready().then(() => {
       (<any>window).cordova.plugins.email.isAvailable((isAvailable, withScheme)=>{
             if(isAvailable){
               (<any>window).cordova.plugins.email.open({
-                to: ["johanna@bythebeach.se"],
+                to: [this.emailAddress],
               },((res)=>{
                   alert('E-post skickat');
               }));
