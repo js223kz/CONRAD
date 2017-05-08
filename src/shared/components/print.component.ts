@@ -7,13 +7,13 @@ import { PrintTemplateService } from '../providers/print-template.service';
 @Component({
   selector: 'print-component',
   template: `<ion-buttons start>
-              <button class="action-btn" ion-button icon-only
-              (click)="print()">
+              <button class="action-btn" ion-button icon-only (click)="print()">
                 <ion-icon ios="ios-print" md="md-print"></ion-icon>
               </button>
             </ion-buttons>`,
   providers: [PrintTemplateService]
 })
+
 export class PrintComponent {
   @Input() tableRows: any [];
   @Input() descriptionRows: any [];

@@ -20,9 +20,7 @@ export class FormRowService {
                                                           CustomValidators.min(min),
                                                           CustomValidators.max(max)]);
       }
-
     });
-
     return new FormGroup(group);
   }
 }

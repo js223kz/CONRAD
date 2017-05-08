@@ -6,22 +6,27 @@ export class DbCloneService {
   constructor() {}
 
   cloneDatabases(databases){
-   return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject)=>{
      databases.forEach((db)=>{
-       (<any>window).plugins.sqlDB.copy(db, 0, this.success, this.error)
+      let cloned = (<any>window).plugins.sqlDB.copy(db, 0, this.success, this.error);
+      if(cloned){
+        resolve();
+      }else{
+        reject();
+      }
     });
-   })
+  });
   }
 
   success(){
-    return 'Databas kopierad';
+    return true;
   }
 
   error(error){
     if(error.code == 516){
-      return 'Databas finns redan';
+      return true;
     }else{
-      throw new Error('Databasfel: kan inte kopieras till denna enhet.');
+      return false;
     }
   }
 }

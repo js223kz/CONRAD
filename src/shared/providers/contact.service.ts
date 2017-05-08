@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { EmailComposer } from 'ionic-native';
 import { Platform } from 'ionic-angular';
 import { ConstantService } from './constant.service';
 
@@ -18,7 +17,7 @@ export class ContactService {
               (<any>window).cordova.plugins.email.open({
                 to: [this.emailAddress],
               },((res)=>{
-                  alert('E-post skickat');
+                  //e-post skickat
               }));
 
             }else{

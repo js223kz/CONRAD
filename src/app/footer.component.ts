@@ -17,7 +17,7 @@ import { ConstantService } from '../shared/providers/constant.service';
                   </button>
                 </ion-buttons>
 
-                <ion-title id="footer-title">VVS Agenturer AB</ion-title>
+                <ion-title class="footer-title">VVS Agenturer AB</ion-title>
 
                 <ion-buttons end hideWhen="ipad">
                   <a href="tel:{{phoneNumber}}">

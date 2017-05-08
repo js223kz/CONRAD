@@ -4,11 +4,11 @@ import { Platform } from 'ionic-angular';
 @Component({
   selector: 'email-component',
   template: `<ion-buttons end>
-                <button class="action-btn email" ion-button icon-only
+              <button class="action-btn email" ion-button icon-only
                 (click)="sendEmail()">
                   <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
-                </button>
-              </ion-buttons>`,
+              </button>
+            </ion-buttons>`,
               styles: [`
                         .action-btn{
                           font-size: 23px;
@@ -23,7 +23,7 @@ export class EmailComponent {
 
   constructor(public platform: Platform) {}
 
-  sendEmail(){
+  sendEmail(kindOfEmail){
     this.platform.ready().then(() => {
       (<any>window).cordova.plugins.email.isAvailable((isAvailable, withScheme)=>{
             if(isAvailable){

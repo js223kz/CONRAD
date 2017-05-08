@@ -12,8 +12,16 @@ import { DimensionFormPage } from '../pages/dimension-form/form-page';
 
 })
 export class MyApp {
+
   public rootPage: any = DimensionFormPage;
 
+  success(){
+    console.log("success");
+  }
+
+  error(){
+    console.log("error");
+  }
   constructor(platform: Platform,
               dbCloneService: DbCloneService,
               constantService: ConstantService) {
@@ -23,9 +31,10 @@ export class MyApp {
         (<any>window).cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
         Keyboard.disableScroll(false);
       }
-
-      dbCloneService.cloneDatabases(constantService.DATABASES),
-
+      dbCloneService.cloneDatabases(constantService.DATABASES)
+      .then(this.success)
+      .catch(this.error);
+          
       StatusBar.overlaysWebView(false);
       StatusBar.styleDefault();
       Splashscreen.hide();
